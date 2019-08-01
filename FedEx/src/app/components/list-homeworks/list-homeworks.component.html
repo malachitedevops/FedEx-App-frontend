@@ -1,7 +1,7 @@
 <div class="hw_container" 
   [ngClass]="{'Math': homework.subject === 'Math', 
   'Literature': homework.subject === 'Literature'}" 
-  *ngFor="let homework of homeworks">
+  *ngFor="let homework of homeworks" (click)="selectHomework(homework)">
   <div class="header">
     <div class="teacher">
       <div class="avatar"></div>

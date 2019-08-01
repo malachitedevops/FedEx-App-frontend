@@ -45,6 +45,10 @@ export class AuthenticationService {
     return localStorage.getItem(this.USERNAME);
   }
 
+  getUserRoleLocal() {
+    return localStorage.getItem(this.USERROLE);
+  }
+
   private storeTokens(userName: string, profilePicture: string, userID: string, role: string) {
     localStorage.setItem(this.USERNAME, userName);
     localStorage.setItem(this.USERAVATAR, profilePicture);

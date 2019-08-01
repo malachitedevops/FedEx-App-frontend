@@ -32,10 +32,8 @@ import {
   MatBadgeModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { HomeworkService } from './services/homework.service'
-import { HttpClientModule } from '@angular/common/http';
-import { MatCardModule } from '@angular/material/card';
+import { HomeworkFullComponent } from './components/homework-full/homework-full.component';
+import { HomeworkService } from './services/homework.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +44,8 @@ import { MatCardModule } from '@angular/material/card';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    HomeworkFullComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -76,7 +75,7 @@ import { MatCardModule } from '@angular/material/card';
   providers: [
     HomeworkService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
   entryComponents: [ ErrorDialogComponent]
 })
 export class AppModule { }

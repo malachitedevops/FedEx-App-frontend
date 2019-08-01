@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HomeworkService } from '../../services/homework.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-homeworks',
@@ -15,7 +16,7 @@ export class ListHomeworksComponent implements OnInit {
 
   subject: string = 'Math';
   constructor(
-    private homeworkService: HomeworkService
+    private homeworkService: HomeworkService, private router: Router
   ) { }
 
   ngOnInit() {
@@ -24,5 +25,10 @@ export class ListHomeworksComponent implements OnInit {
       this.homeworks = homeworks;
       console.log(this.homeworks);
     });
+  }
+
+  selectHomework(homework) {
+    console.log(homework._id)
+    this.router.navigate([`/homework`], { queryParams: { homeworkId: homework._id } });
   }
 }

@@ -14,4 +14,10 @@ export class HomeworkService {
       headers: { 'content-type': 'application/json' },
     })
   }
+
+  getOneHomework(id: string) {
+    return this.http.get(`${environment.serverURL}/homework/${id}`, {
+      headers: { 'content-type': 'application/json' },
+    })
+  }
 }
