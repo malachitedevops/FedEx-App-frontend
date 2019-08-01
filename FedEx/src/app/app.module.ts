@@ -7,6 +7,15 @@ import { ListHomeworksComponent } from './components/list-homeworks/list-homewor
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatInputModule,
+  MatMenuModule,
+  MatSelectModule,
+  MatToolbarModule
+  } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -14,11 +23,17 @@ import { HeaderComponent } from './components/header/header.component';
     ListHomeworksComponent,
     SidenavComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
