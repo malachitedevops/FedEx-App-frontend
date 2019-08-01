@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HomeworkCreateService } from '../services/homework-create.service';
-import { Homework } from '../models/homework.model';
+import { HomeworkCreateService } from '../../services/homework-create.service';
+import { Homework } from '../../models/homework.model';
 
 @Component({
   selector: 'app-homework-creation',

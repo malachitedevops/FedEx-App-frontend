@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeworkCreationComponent } from './homework-creation/homework-creation.component';
+import { HomeworkCreationComponent } from './components/homework-creation/homework-creation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
  MatButtonModule,
