@@ -44,7 +44,7 @@ export class HomeworkCreationComponent implements OnInit {
 
   public createHomework(form: FormGroup) {
     this.autService.getUsernameLocal()
-    console.log(this.deadlineDate);
+    console.log(form.value.class.name);
     this.homework = {
       deadline: form.value.picker,
       title: form.value.title,
@@ -54,7 +54,7 @@ export class HomeworkCreationComponent implements OnInit {
       subject: form.value.subject,
       teacherName: this.autService.getUsernameLocal(),
       className: form.value.class,
-      classCode: '121212',
+      classCode: this.classList.filter((e)=>e.name===form.value.class)[0].code,
       solutions: ''
     };
     console.log(this.homework);
