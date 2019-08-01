@@ -41,6 +41,7 @@ import {
   MatDatepickerModule,
   MatNativeDateModule
 } from '@angular/material';
+import { HomeworkService } from './services/homework.service';
 
 @NgModule({
   declarations: [
@@ -83,10 +84,13 @@ import {
     MatNativeDateModule,
     MatSnackBarModule
   ],
-  providers: [ClassService,
-             HomeworkCreateService],
-  bootstrap: [AppComponent],
-  entryComponents: [ PopupComponent, ErrorDialogComponent]
+  providers: [
+    ClassService,
+    HomeworkService,
+    HomeworkCreateService
+  ],
+  bootstrap: [ AppComponent ],
+  entryComponents: [ ErrorDialogComponent ]
 
 })
 export class AppModule { }
