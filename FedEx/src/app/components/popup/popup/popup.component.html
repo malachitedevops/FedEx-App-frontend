@@ -1,0 +1,10 @@
+<div mat-dialog-container>
+  <div mat-dialog-content>
+    <h3 class="message">Enter Class Name</h3>
+    <input matInput #className autocomplete="off">
+  </div>
+  <div mat-dialog-actions>
+    <button class="leftButton" mat-stroked-button (click)="onCancel()">Cancel</button>
+    <button class="rightButton" mat-flat-button color="warn" (click)="onSubmit(className.value)">Submit</button>
+  </div>
+</div>
