@@ -1,1 +1,3 @@
-<p>sidenav works!</p>
+<div *ngIf="getRoleFromLocal()">
+  <button mat-raised-button (click)="openPopUp('createClass')" class="createClassButton">Create New Class</button>
+</div>
