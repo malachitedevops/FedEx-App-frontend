@@ -1,0 +1,141 @@
+$base-color: #FF0038
+$break-large: 1024px
+$break-medium: 700px
+
+.main_container
+  background: linear-gradient(90deg, rgba(255,0,0,1) 50%, rgba(255,255,255,1) 50%)
+  display: flex
+  font-family: 'Lato'
+  height: 100vh
+  margin:0
+  overflow: hidden
+  position: relative
+  width: 100%
+
+  .form_div
+    display: flex
+    flex-direction: column
+    height: 100%
+    justify-content: center
+    position: absolute
+    width: 100%
+
+.left_div
+  background: url('https://images.unsplash.com/photo-1542546068979-b6affb46ea8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')
+  height: 100vh
+  width: 50%
+
+  .color_overlay
+    background-color: $base-color
+    display: flex
+    flex-direction: column
+    height: 100%
+    justify-content: center
+    opacity: 0.8
+    width: 100%
+
+    .quote_container
+      margin-left: 1%
+      margin-right: 30%
+
+      h5
+        color: #fff
+        font-size: 2vw
+        margin: 0
+        font-style: italic
+        font-weight: 400
+        text-align: center
+
+      h6
+        color: #fff
+        font-size: 1.5em
+        font-style: italic
+        font-weight: 100
+        margin-left: 40%
+
+.right_div
+  height: 100vh
+  width: 50%
+
+form
+  align-items: center
+  background-color: #fff
+  border: 1px solid #F0F0F0
+  border-radius: 12px
+  box-shadow: 5px 2px 10px #E0E0E0
+  display: flex
+  flex-direction: column
+  flex-shrink: 1
+  height: 70%
+  margin: auto
+  max-width: 600px
+  min-height: 500px
+  width: 50vw
+  @media screen and (max-width: $break-large)
+    border-radius: 0
+    height: 100vh
+    left: 0
+    margin: 0
+    max-width: 1024px
+    top: 0
+    width: 100vw
+
+  h1
+    font-size: 1.5em
+    letter-spacing: 3px
+    margin-top: 5vh
+
+  .line 
+    background-color: $base-color
+    height: 3px
+    margin-bottom: 4vh
+    opacity: 0.8
+    width: 6%
+
+  h4
+    font-size: 20px
+    margin: 1vh
+    @media screen and (max-width: $break-large)
+      font-size: 2.5vh
+      margin-top: 2vh
+
+  a
+    color: $base-color
+    text-decoration: none
+
+  .mat-form-field
+    font-size: 1.3em
+    margin-top: 2vh
+    width: 80%
+    @media screen and (max-width: $break-large)
+      margin-top: 5vh
+
+    input
+      @media screen and (max-width: $break-large)
+        height: 8vh
+        font-size: 4vh
+
+    .placeholder
+      @media screen and (max-width: $break-large)
+        color: #666666
+        font-size: 26px
+      
+
+  .mat-raised-button
+    background: linear-gradient(to right, #ec5624 5%, #eb4757 100%)
+    border-radius: 8px
+    color: #fff
+    font-size: 2vh
+    height: 10%
+    letter-spacing: 3px
+    margin-bottom: 3vh
+    margin-top: 4vh
+    max-width: 300px
+    width: 70%
+    @media screen and (max-width: $break-large)
+      font-size: 3vh
+      height: 6%
+      letter-spacing: 6px
+      margin-top: 5vh
+      width: 50%
+
