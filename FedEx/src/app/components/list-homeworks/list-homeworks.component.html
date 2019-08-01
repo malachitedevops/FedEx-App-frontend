@@ -1,1 +1,33 @@
-<p>list-homeworks works!</p>
+<div class="hw_container" 
+*ngFor="let homework of homeworks">
+  <div class="subject">
+    <div class="{{homework.subject}}"></div>
+    <p class="subject_name">{{homework.subject}}</p>
+  </div>
+  <div class="header">
+    <div class="teacher">
+      <div class="avatar"></div>
+      <p class="teacher_name">{{homework.teacherName}}</p>
+      <div class="created">
+        <p>Created:</p>
+        <p>{{homework.created}}</p>
+      </div>
+    </div>
+    <div class="submissions">16 submissions</div>
+  </div>
+  <mat-card-content>
+    <div class="homework_details">
+      <p class="homework_title">{{ homework.title }}</p>
+      <p class="short_desc">{{homework.shortDesc}}</p>
+    </div>
+    <div class="deadline">
+      <p class="dl">Deadline:</p>
+      <p class="date">{{homework.deadline}}</p>
+    </div>
+  </mat-card-content>
+</div>
+<!-- 
+[ngClass]="{'Math': homework.subject === 'Math', 
+'Literature': homework.subject === 'Literature', 
+'Physics': homework.subject === 'Physics',
+'Biology': homework.subject === 'Biology'}" -->

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HomeworkCreateService } from '../../services/homework-create.service';
 import { Homework } from '../../models/homework.model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ClassService } from 'src/app/services/class.service';
 
 @Component({
   selector: 'app-homework-creation',
@@ -14,6 +15,7 @@ export class HomeworkCreationComponent implements OnInit {
 
   public homeworkCreationForm: FormGroup;
   public subjects = ['Math','History','English','Geography', 'Biology']
+  public classList;
   public deadlineDate: Date;
   homework: Homework;
 
@@ -21,15 +23,21 @@ export class HomeworkCreationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private createHomeworkService: HomeworkCreateService,
     private autService: AuthenticationService,
+    private classService: ClassService,
     private router: Router,
   ) { }
 
   ngOnInit() {
+    this.classService.getClasses()
+    .subscribe((classes: object[]) => {
+      this.classList = classes;
+    });
     this.homeworkCreationForm = this.formBuilder.group({
       title: new FormControl('', [Validators.required]),
       shortDesc: new FormControl('', [Validators.required, Validators.maxLength(100)]),
       content: new FormControl('', [Validators.required]),
       subject: new FormControl('', [Validators.required]),
+      class: new FormControl('', [Validators.required]),
       picker: new FormControl(new Date(), [Validators.required]),
     },{validator: this.dateCheck('picker')});
   }
@@ -45,7 +53,7 @@ export class HomeworkCreationComponent implements OnInit {
       created: Date.now(),
       subject: form.value.subject,
       teacherName: this.autService.getUsernameLocal(),
-      className: 'class1',
+      className: form.value.class,
       classCode: '121212',
       solutions: ''
     };
