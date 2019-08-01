@@ -85,9 +85,11 @@ import { HomeworkService } from './services/homework.service';
     MatNativeDateModule,
     MatSnackBarModule
   ],
-  providers: [ClassService,
-             HomeworkCreateService,
-    HomeworkService],
+  providers: [
+    ClassService,
+    HomeworkCreateService,
+    HomeworkService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [ PopupComponent, ErrorDialogComponent]
 

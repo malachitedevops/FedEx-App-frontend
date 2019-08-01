@@ -1,0 +1,154 @@
+.main-container
+  background-color: #f7f7f7
+  font-family: 'Lato'
+  padding-top: 90px
+  width: 100vw
+
+  .homework
+    background-color: #fff
+    border-radius: 15px
+    display: flex
+    justify-content: space-between
+    padding: 2%
+    margin: 1%
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.31)
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.31)
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.31)
+
+    .subject_picture
+      background-image: url(../../../assets/biology.png)
+      background-position: center
+      background-repeat: no-repeat
+      background-size: contain
+      margin-left: 3%
+      min-height: 200px
+      min-width: 200px
+
+    .homework_body
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      width: 80%
+
+      .homework_text
+        align-items: center
+        display: flex
+        flex-direction: column
+        margin-top: 2%
+        margin-left: 10%
+        width: 80%
+
+        .homework_title
+          font-size: 2rem
+
+        .homework_teacher
+          color: #555
+          font-size: 0.9rem
+          margin: 2% auto
+
+      .solutions_stat
+        align-items: center
+        display: flex
+        justify-content: center
+        min-width: 250px
+        width: 30%
+
+        .solution_counter
+          background-color: #fff
+          border-radius: 3px
+          padding: 10%
+          -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.31)
+          -moz-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.31)
+          box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.31)
+
+  .own_solution
+    align-items: flex-end
+    display: flex
+    flex-direction: column
+    background-color: #f7f7f7
+    border-radius: 15px
+    margin: auto
+    padding: 2% 0 0
+    width: 70%
+    -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.31)
+    -moz-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.31)
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.31)
+
+    .input-form
+      display: flex
+      height: 100px
+      justify-content: center
+      font-size: 1.2rem
+      width: 100%
+      mat-form-field
+        border: 2px solid #57A1C6
+        border-radius: 5px
+        background-color: #fff
+        padding: 0 2% 0
+        width: 90%
+
+        textarea
+          resize: none
+
+    button
+      background-color: #57A1C6
+      border-radius: 10px
+      color: #fff
+      float: right
+      font-size: 1.2rem
+      font-weight: 600
+      margin: 3%
+      width: 200px
+
+  .other_solutions
+    margin: auto
+    padding: 2% 0 0
+    width: 70%
+
+
+    .solution
+      display: flex
+      justify-content: center
+      flex-direction: column
+      background-color: #fff
+      border-radius: 15px
+      height: 100px
+      padding: 2%
+      margin: 1%
+      width: 100%
+      -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.31)
+      -moz-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.31)
+      box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.31)
+
+      .sol_head
+        display: flex
+        justify-content: space-between
+        margin: 0 2%
+        height: 50px
+
+        .sol_user
+          display: flex
+          align-items: center
+          justify-content: space-between
+
+          .user_avatar
+            border-radius: 50%
+            background-color: red
+            min-height: 30px
+            margin-right: 20%
+            min-width: 30px
+
+        .sol_creation
+          display: flex
+          flex-direction: column
+          align-items: center
+
+          p
+            display: inline
+            margin: 0
+
+          p:nth-child(1)
+            font-size: 0.8rem
+
+      .sol_body
+        margin: auto

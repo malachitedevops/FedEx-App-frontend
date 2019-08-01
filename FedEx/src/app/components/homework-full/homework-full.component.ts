@@ -13,9 +13,36 @@ import { ClassService } from 'src/app/services/class.service';
 })
 export class HomeworkFullComponent implements OnInit, OnDestroy {
 
-  private homework: any;
-  private isStudent = false;
-  private isTeacher = false;
+  public homework: any = {
+    _id: '5d42d458a42a24355ced7f9a',
+    created: '2019-08-01T12:00:23.013+00:00',
+    teacherName: "TT",
+    title: "Fibonacci",
+    shortDesc: "N-ht element of Fibonacchi sequence",
+    content: "Calculate the 25th element of Fibo sequence",
+    subject: "Math",
+    classCode: "10001",
+    className: "1B",
+    deadline: '2019-08-14T22:00:00.000+00:00',
+    solutions: [
+      {
+      _id: '5d432b2d7909eb62663ffc6b',
+      timestamp: '2019-08-01T18:08:27.009+00:00',
+      approved: true,
+      username: "tomiS",
+      content: "Hello",
+      },
+      {
+      _id: '5d432b2d7909eb62663ffc6b',
+      timestamp: '2019-08-01T18:08:27.009+00:00',
+      approved: true,
+      username: "tomiS",
+      content: "Hello",
+      }
+    ]
+  };
+  public isTeacher = true;
+  public haveSolution = false;
   private url: string;
   private homeWorkSubs: Subscription;
   private userRole: string;
@@ -34,18 +61,23 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
     //Get homework from URL by id
     this.url = this.route.snapshot.queryParams.homeworkId;
     this.homeWorkSubs = this.homeworkService.getOneHomework(this.url).subscribe(response => {
-      this.homework = response[0]; 
-      this.submitSolution(); 
-      this.approveSolution();
+      this.homework = response[0];
+      this.homework.solutions.map(solution => {
+        solution.timestamp = solution.timestamp.split('T')[0];
+      });
+      // this.submitSolution();
+      // this.approveSolution();
       this.classService.getclassNumber(this.homework.classCode).subscribe(response => this.classNumber = response['number'])
     })
 
+    this.homework.solutions.map(solution => {
+      solution.timestamp = solution.timestamp.split('T')[0];
+    });
+
     //Get login user role
     this.userRole = this.authenticationService.getUserRoleLocal();
+    // this.userRole === 'teacher' ? this.isTeacher = true : this.isTeacher = false;
     this.userName = this.authenticationService.getUsernameLocal();
-
-    
-
   }
 
   ngOnDestroy() {
@@ -53,12 +85,11 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
   }
 
   //Submit new solution if user is student
-  submitSolution() {
+  submitSolution(content: string) {
     if (this.userRole === 'student') {
-      const content = 'Hello'; //form['content']
       this.homeworkService.submitSolution(this.homework._id, this.userName, content).subscribe(response => {
         if (response['message'] === 'solution added') {
-          //do something after solution added
+          this.haveSolution = true;
         }
       })
     }
