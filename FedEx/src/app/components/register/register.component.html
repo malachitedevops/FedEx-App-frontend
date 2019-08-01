@@ -23,10 +23,14 @@
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-      <button mat-raised-button type="submit" [disabled]="!loginForm.valid">Login</button>
-      <h4>Don't have account?<a routerLink="/register"  routerLinkActive="router-link-active" >SIGN UP</a></h4>
+      <mat-form-field>
+        <input id="code" matInput formControlName="code" autocomplete="off" />
+        <mat-placeholder class="placeholder">Code</mat-placeholder>
+        <mat-error id="code-error" *ngIf="hasError('code', 'required')">Code is required</mat-error>
+      </mat-form-field>
+      <button mat-raised-button type="submit" [disabled]="!loginForm.valid">Register</button>
+      <h4>Do you have account?<a routerLink="/login"  routerLinkActive="router-link-active" >LOGIN</a></h4>
     </form>
   </div>
   <div class="right_div"></div>
 </div>
-

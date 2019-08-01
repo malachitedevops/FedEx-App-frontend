@@ -1,15 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Subscription } from 'rxjs';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.sass']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.sass']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class RegisterComponent implements OnInit, OnDestroy {
 
   public hide = true;
   private isDisabled = true;
@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       username: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
+      password: new FormControl('', [Validators.required]),
+      code: new FormControl('', [Validators.required]),
     });
-
 
   }
 
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   public loginUser(form: FormGroup) {
-    this.authenticationService.loginUserService(form['username'], form['password']);
+    this.authenticationService.registerUserService(form['username'], form['password'], form['code']);
   }
 
   public hasError(controlName: string, errorName: string) {
