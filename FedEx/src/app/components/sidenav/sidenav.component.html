@@ -23,4 +23,6 @@
     <div class="subject physics"></div>
     <div class="text">Physics</div>
   </div>
+<div *ngIf="getRoleFromLocal()">
+  <button mat-raised-button (click)="openPopUp('createClass')" class="createClassButton">Create New Class</button>
 </div>
