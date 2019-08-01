@@ -1,0 +1,27 @@
+<mat-toolbar class="header">
+  <mat-toolbar-row class="logoDiv" (click)="onRedirect('')">
+    <div class="logoPic"></div>
+    <p class="brand">edex</p>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="dropDownDiv" *ngIf="teacherLoggedIn">
+      <h2 class="title">Choose a class:</h2>
+      <mat-form-field class="selection">
+        <mat-label>Classes</mat-label>
+        <mat-select [(value)]="selectedClass">
+          <mat-option *ngFor="let class of classList" [value]="class.name">
+            {{class.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="userDiv">
+    <div class="userOptions" [matMenuTriggerFor]="menu">
+      <p class="hello"> Hello, {{ userNameLocal }}! </p>
+      <button mat-icon-button class="user_avatar"  aria-label="userOptions" [style.backgroundImage]="'url('+userPicturePath+')'"></button>
+      <mat-menu #menu="matMenu" class="user_options">
+        <!-- <button mat-button (click)="onRedirect('settings')" class="settings">Settings</button> -->
+        <button mat-stroked-button (click)="onlogout('login')" class="signOut">Sign out</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
