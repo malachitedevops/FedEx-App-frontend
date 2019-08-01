@@ -43,4 +43,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.navigate([route]);
   }
 
+  onRedirect() {
+    this.router.navigate(['/home']);
+  }
 }
