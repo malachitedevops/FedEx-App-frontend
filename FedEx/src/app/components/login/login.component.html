@@ -1,0 +1,32 @@
+<div class="main_container">
+  <div class="left_div">
+    <div class="color_overlay">
+      <div class="quote_container">
+      </div>
+    </div>
+  </div>
+  <div class="form_div">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+      <h1>SIGN IN</h1>
+      <div class="line"></div>
+      <mat-form-field>
+        <input id="username" matInput formControlName="username" autocomplete="off" />
+        <mat-placeholder class="placeholder">username</mat-placeholder>
+        <mat-error id="username-error" *ngIf="hasError('username', 'required')">Username is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input id="password" matInput formControlName="password" [type]="hide ? 'password' : 'text'" />
+        <mat-placeholder class="placeholder">password</mat-placeholder>
+        <mat-error id="password-error" *ngIf="hasError('username', 'required')">Password is required</mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" type="button">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <button mat-raised-button type="submit" [disabled]="!loginForm.valid">Login</button>
+      <h4>Don't have account?<a routerLink="/register"  routerLinkActive="router-link-active" >SIGN UP</a></h4>
+    </form>
+  </div>
+  <div class="right_div"></div>
+</div>
+
