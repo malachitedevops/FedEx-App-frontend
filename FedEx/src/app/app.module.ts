@@ -11,11 +11,12 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomeworkCreationComponent } from './components/homework-creation/homework-creation.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PopupComponent } from './components/popup/popup/popup.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
-import { BrowserAnimationsModule } from '@ang0ular/platform-browser/animations';
 import { HomeworkCreateService } from './services/homework-create.service';
 
 import {
@@ -50,7 +51,8 @@ import {
     LoginComponent,
     RegisterComponent,
     ErrorDialogComponent,
-    HomeworkCreationComponent
+    HomeworkCreationComponent,
+    PopupComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -77,12 +79,13 @@ import {
     MatBadgeModule,
     HttpClientModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSnackBarModule
   ],
   providers: [ClassService,
              HomeworkCreateService],
   bootstrap: [AppComponent],
-  entryComponents: [ ErrorDialogComponent]
+  entryComponents: [ PopupComponent, ErrorDialogComponent]
 
 })
 export class AppModule { }

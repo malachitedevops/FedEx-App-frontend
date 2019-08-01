@@ -31,7 +31,7 @@ export class AuthenticationService {
       { headers: { 'Content-Type': 'application/json' } }).subscribe(
         (response: Response) => {
           this.storeTokens(response['username'], response['avatarPath'], response['_id'], response['role']);
-          this.router.navigate(['/']);
+          this.router.navigate(['/home']);
         },
         (error) => {
           this.dialogService.openError(error['error']['message'], error['status']);
