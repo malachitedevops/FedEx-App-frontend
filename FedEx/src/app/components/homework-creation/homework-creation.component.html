@@ -11,14 +11,14 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput formControlName="shortDesc" autocomplete="off" />
+        <textarea matInput formControlName="shortDesc" autocomplete="off" ></textarea>
         <mat-placeholder class="placeholder">Short description (max 100 char)</mat-placeholder>
         <mat-error *ngIf="textHasError('shortDesc', 'required')">Title is required</mat-error>
         <mat-error *ngIf="textHasError('shortDesc', 'maxlength')">Content can't be longer than 100 characters</mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput formControlName="content" autocomplete="off" />
+        <textarea matInput formControlName="content" autocomplete="off" ></textarea>
         <mat-placeholder class="placeholder">Describe the homework exercise</mat-placeholder>
         <mat-error *ngIf="textHasError('content', 'required')">Title is required</mat-error>
         <mat-error *ngIf="textHasError('content', 'maxlength')">Content can't be longer than 100 characters</mat-error>
@@ -29,6 +29,15 @@
         <mat-select matInput formControlName="subject">
           <mat-option *ngFor="let subject of subjects" value="{{subject}}">
             {{subject}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Select Class</mat-label>
+        <mat-select matInput formControlName="class">
+          <mat-option *ngFor="let class of classList" value="{{class.name}}">
+            {{class.name}}
           </mat-option>
         </mat-select>
       </mat-form-field>
