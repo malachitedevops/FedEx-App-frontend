@@ -89,7 +89,7 @@ import { HomeworkService } from './services/homework.service';
     HomeworkCreateService
   ],
   bootstrap: [ AppComponent ],
-  entryComponents: [ ErrorDialogComponent ]
+  entryComponents: [ ErrorDialogComponent, PopupComponent ]
 
 })
 export class AppModule { }

@@ -4,7 +4,7 @@
   font-family: 'Roboto', sans-serif
   height: 35vh
   justify-content: space-between
-  margin: 1vh
+  margin: 1.6vh
   width: 20vw
 
   .button_container:hover
@@ -13,25 +13,25 @@
     color: #fff
 
   .button_container
-    display: flex
-    width: 100%
-    border-radius: 4px
-    height: 35px
-    line-height: 40px
     align-items: center
-    padding: 6px
+    border-radius: 10px
+    display: flex
+    height: 35px
+    line-height: 35px
     margin: 3px 10px
+    padding: 6px
+    width: 100%
 
     .subject
-      width: 18px
-      height: 18px
       border-radius: 9px
+      height: 18px
       margin-right: 10px
+      width: 18px
 
     .text
+      font-size: 14px
       font-weight: 600
       letter-spacing: 3px
-      font-size: 14px
 
   .biology
     background-color: #FFD275
@@ -50,12 +50,22 @@
 
   .physics
     background-color: #AA8F66
+
+  .english
+    background-color: #B744B8
+
 .createClassButton
-  background: rgb(60,172,254)
-  width: 150px
-  height: 35px
-  border: 1px
-  border-radius: 5px
-  font-size: 13px
+  background: linear-gradient(to right, #57a1c6 5%, #69bace 100%)
+  border-radius: 10px
   color: #fff
-  letter-spacing: 3px
+  height: 35px
+  line-height: 35px
+  margin: 3px 10px
+  padding: 6px
+  text-align: center
+  vertical-align: middle
+  width: 100%
+
+.createClassButton:hover
+  background: linear-gradient(to right, #69bace 5%, #57a1c6 100%)
+  cursor: pointer
