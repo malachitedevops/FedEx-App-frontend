@@ -1,17 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ClassService } from './services/class.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ListHomeworksComponent } from './components/list-homeworks/list-homeworks.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HomeComponent } from './components/home/home.component';
+import { HomeworkCreationComponent } from './components/homework-creation/homework-creation.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+import { BrowserAnimationsModule } from '@ang0ular/platform-browser/animations';
+import { HomeworkCreateService } from './services/homework-create.service';
+
 import {
   MatButtonModule,
   MatCardModule,
@@ -29,9 +35,10 @@ import {
   MatPaginatorModule,
   MatSnackBarModule,
   MatExpansionModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -42,7 +49,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    HomeworkCreationComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -67,10 +75,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSnackBarModule,
     MatExpansionModule,
     MatBadgeModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [ClassService,
+             HomeworkCreateService],
   bootstrap: [AppComponent],
   entryComponents: [ ErrorDialogComponent]
+
 })
 export class AppModule { }
