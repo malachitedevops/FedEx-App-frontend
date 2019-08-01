@@ -11,7 +11,7 @@ export class ListHomeworksComponent implements OnInit {
 
 
   private classCode: string = '10001';
-  private homeworks: object[];
+  public homeworks: object[];
 
   subject: string = 'Math';
   constructor(
