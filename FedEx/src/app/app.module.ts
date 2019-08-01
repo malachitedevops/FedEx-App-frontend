@@ -15,7 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
-import { BrowserAnimationsModule } from '@ang0ular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeworkCreateService } from './services/homework-create.service';
 
 import {
