@@ -8,13 +8,13 @@ import { ClassService } from '../../../services/class.service'
   styleUrls: ['./popup.component.sass']
 })
 export class PopupComponent {
-  public confirm: any;
+  public class: any;
 
   constructor(
     private classService: ClassService,
     private dialogRef: MatDialogRef<PopupComponent>,
     @Inject(MAT_DIALOG_DATA) {newClass}) {
-      this.confirm = newClass
+      this.class = newClass
     }
 
   public onCancel(): void {

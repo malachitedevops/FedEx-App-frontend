@@ -11,14 +11,11 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PopupComponent } from './components/popup/popup/popup.component';
-import { MatDialogModule, MatSnackBarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatCardModule,
@@ -48,7 +45,7 @@ import {
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
     PopupComponent
   ],
   imports: [
@@ -74,11 +71,11 @@ import {
     MatSnackBarModule,
     MatExpansionModule,
     MatBadgeModule,
-    HttpClientModule
+    HttpClientModule,
     MatSnackBarModule
   ],
   providers: [ClassService],
   bootstrap: [AppComponent],
-  entryComponents: [ ErrorDialogComponent]
+  entryComponents: [ PopupComponent, ErrorDialogComponent]
 })
 export class AppModule { }

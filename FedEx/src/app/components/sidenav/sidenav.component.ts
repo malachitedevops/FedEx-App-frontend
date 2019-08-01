@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { PopupComponent } from '../popup/popup/popup.component';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -10,7 +11,8 @@ import { PopupComponent } from '../popup/popup/popup.component';
 export class SidenavComponent implements OnInit {
 
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -18,7 +20,7 @@ export class SidenavComponent implements OnInit {
   }
 
   getRoleFromLocal():boolean {
-    if(localStorage.getItem('role') === 'teacher'){
+    if(this.authenticationService.getUserRoleLocal() === 'teacher'){
       return true;
     }else{
       return false;
@@ -29,13 +31,11 @@ export class SidenavComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     const newClass = {
-      teacher:'sadaasda',
+      teacher:'',
       className:''
     }
     dialogConfig.data = {newClass};
     dialogConfig.width = '40vw';
-    dialogConfig.height = 'auto';
-    //dialogConfig.panelClass = 'popoup-dialog';
     this.dialog.open(PopupComponent, dialogConfig);
   }
 
