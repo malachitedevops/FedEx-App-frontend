@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
-import { PopupComponent } from '../popup/popup/popup.component';
+import { PopupComponent } from '../popup/popup.component';
 import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
