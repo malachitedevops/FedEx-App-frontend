@@ -8,7 +8,7 @@ import { HomeworkFullComponent } from './components/homework-full/homework-full.
 import { ListHomeworksComponent } from './components/list-homeworks/list-homeworks.component';
 
 const routes: Routes = [
-  {path: 'home', component: ListHomeworksComponent},
+  {path: 'home', component: HomeComponent},
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},

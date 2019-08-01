@@ -15,7 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
-import { BrowserAnimationsModule } from '@ang0ular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeworkCreateService } from './services/homework-create.service';
 
 import {
@@ -39,7 +39,6 @@ import {
   MatDatepickerModule,
   MatNativeDateModule
 } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeworkFullComponent } from './components/homework-full/homework-full.component';
 import { HomeworkService } from './services/homework.service';
 
@@ -53,7 +52,7 @@ import { HomeworkService } from './services/homework.service';
     LoginComponent,
     RegisterComponent,
     ErrorDialogComponent,
-    HomeworkCreationComponent
+    HomeworkCreationComponent,
     HomeworkFullComponent
   ],
   imports: [
@@ -84,8 +83,8 @@ import { HomeworkService } from './services/homework.service';
     MatNativeDateModule
   ],
   providers: [ClassService,
-             HomeworkCreateService],
-    HomeworkService
+             HomeworkCreateService,
+    HomeworkService],
   bootstrap: [AppComponent],
   entryComponents: [ ErrorDialogComponent]
 
