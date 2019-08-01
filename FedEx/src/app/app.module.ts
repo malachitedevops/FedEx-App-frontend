@@ -18,7 +18,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 import { HomeworkCreateService } from './services/homework-create.service';
-
+import { SettingsComponent } from './components/settings/settings.component';
 import {
   MatButtonModule,
   MatCardModule,
@@ -53,7 +53,8 @@ import { HomeworkService } from './services/homework.service';
     RegisterComponent,
     ErrorDialogComponent,
     HomeworkCreationComponent,
-    PopupComponent
+    PopupComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -89,7 +90,7 @@ import { HomeworkService } from './services/homework.service';
     HomeworkCreateService
   ],
   bootstrap: [ AppComponent ],
-  entryComponents: [ ErrorDialogComponent ]
+  entryComponents: [ PopupComponent, ErrorDialogComponent ]
 
 })
 export class AppModule { }

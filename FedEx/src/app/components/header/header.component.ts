@@ -38,6 +38,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.classesSub.unsubscribe();
   }
 
+  onRedirect(route: string) {
+    this.router.navigate([route]);
+  }
+
   onlogout(route: string) {
     this.authenticationService.logoutUserService();
     this.router.navigate([route]);
