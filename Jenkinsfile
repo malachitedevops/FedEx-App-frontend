@@ -23,18 +23,6 @@ pipeline {
 			}
 		}
 
-		stage ('Getting environment file') {
-			when {
-				branch 'master'
-			}
-			steps {
-				withAWS(credentials: 'awsebcred', region: 'us-east-1') {
-					sh 'mkdir $WORKSPACE/FedEx/src/environments || echo "Directory already exists."'
-					sh 'cd $WORKSPACE/FedEx/src/environments && aws s3 cp s3://fedexenv-4d60572/environment.prod.ts ./environment.prod.ts && aws s3 cp s3://fedexenv-4d60572/environment.ts ./environment.ts'
-				}
-			}
-		}
-	
 		stage ('Production build') {
 			when {
 				branch 'master'
