@@ -25,7 +25,7 @@
   font-family: 'Montserrat', sans-serif
   margin: 1vh 0 1vh 3vw
   width: 70vw
-  padding: 10px
+  padding: 15px
 
   .header
     align-items: center
@@ -35,6 +35,7 @@
 
     .teacher
       display: flex
+      align-items: center
 
       .avatar
         width: 50px
@@ -43,8 +44,9 @@
         background-image: url("https://fedeximages-51d4a1c.s3.amazonaws.com/avatars/teacher.png")
 
       .teacher_name
-        margin-left: 10px
+        margin: 0 20px
         font-weight: 600
+        font-size: 20px
 
     .created
       display: flex
@@ -76,7 +78,7 @@
 
       .Biology
         @include standard_subject_features()
-        background-image: url("https://image.flaticon.com/icons/svg/1090/1090687.svg")
+        background-image: url("https://image.flaticon.com/icons/svg/1089/1089087.svg")
 
 
   mat-card-content
@@ -100,6 +102,9 @@
       margin: 30px
       color: #CD533B
       font-size: 20px
+      display: flex
+      flex-direction: column
+      align-items: center
 
       p
         margin: 0
