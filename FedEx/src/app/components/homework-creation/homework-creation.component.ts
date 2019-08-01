@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { HomeworkCreateService } from '../../services/homework-create.service';
 import { Homework } from '../../models/homework.model';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-homework-creation',
@@ -19,6 +20,7 @@ export class HomeworkCreationComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private createHomeworkService: HomeworkCreateService,
+    private autService: AuthenticationService,
     private router: Router,
   ) { }
 
@@ -33,6 +35,7 @@ export class HomeworkCreationComponent implements OnInit {
   }
 
   public createHomework(form: FormGroup) {
+    this.autService.getUsernameLocal()
     console.log(this.deadlineDate);
     this.homework = {
       deadline: form.value.picker,
@@ -41,7 +44,7 @@ export class HomeworkCreationComponent implements OnInit {
       content: form.value.content,
       created: Date.now(),
       subject: form.value.subject,
-      teacherName: 'TT',
+      teacherName: this.autService.getUsernameLocal(),
       className: 'class1',
       classCode: '121212',
       solutions: ''
@@ -69,7 +72,7 @@ export class HomeworkCreationComponent implements OnInit {
   }
 
 
-  private textHasError(controlName: string, errorName: string) {
+  public textHasError(controlName: string, errorName: string) {
     return this.homeworkCreationForm.controls[controlName].hasError(errorName);
   }
 
