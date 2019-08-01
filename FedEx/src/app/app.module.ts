@@ -33,6 +33,10 @@ import {
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HomeworkService } from './services/homework.service'
+import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,8 +73,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatBadgeModule,
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [
+    HomeworkService
+  ],
+  bootstrap: [AppComponent]
   entryComponents: [ ErrorDialogComponent]
 })
 export class AppModule { }
