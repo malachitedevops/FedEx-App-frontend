@@ -45,6 +45,10 @@ export class AuthenticationService {
     return localStorage.getItem(this.USERNAME);
   }
 
+  getUserAvatarLocal() {
+    return localStorage.getItem(this.USERAVATAR);
+  }
+
   getUserRoleLocal() {
     return localStorage.getItem(this.USERROLE);
   }
