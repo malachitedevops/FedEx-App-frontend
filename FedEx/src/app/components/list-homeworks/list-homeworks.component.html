@@ -1,9 +1,9 @@
 <div class="hw_container" 
-  [ngClass]="{'Math': homework.subject === 'Math', 
-  'Literature': homework.subject === 'Literature', 
-  'Physics': homework.subject === 'Physics',
-  'Biology': homework.subject === 'Biology'}"
-  *ngFor="let homework of homeworks">
+*ngFor="let homework of homeworks">
+  <div class="subject">
+    <div class="{{homework.subject}}"></div>
+    <p class="subject_name">{{homework.subject}}</p>
+  </div>
   <div class="header">
     <div class="teacher">
       <div class="avatar"></div>
@@ -13,10 +13,7 @@
         <p>{{homework.created}}</p>
       </div>
     </div>
-    <div class="subject">
-      <p class="subject_name">{{homework.subject}}</p>
-      <div class="{{homework.subject}}"></div>
-    </div>
+    <div class="submissions">16 submissions</div>
   </div>
   <mat-card-content>
     <div class="homework_details">
@@ -29,3 +26,8 @@
     </div>
   </mat-card-content>
 </div>
+<!-- 
+[ngClass]="{'Math': homework.subject === 'Math', 
+'Literature': homework.subject === 'Literature', 
+'Physics': homework.subject === 'Physics',
+'Biology': homework.subject === 'Biology'}" -->

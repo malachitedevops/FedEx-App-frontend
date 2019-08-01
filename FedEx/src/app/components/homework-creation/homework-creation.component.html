@@ -1,5 +1,5 @@
 <div>
- <div class="form_div">
+  <div class="form_div">
     <form [formGroup]="homeworkCreationForm" (ngSubmit)="createHomework(homeworkCreationForm)">
       <h1>CREATE HOMEWORK</h1>
       <div class="line"></div>
@@ -42,7 +42,6 @@
 
       <button mat-raised-button type="submit" [disabled]="(!homeworkCreationForm.valid) " [class.disabled]="(!homeworkCreationForm.valid)">Submit</button>
     </form>
-
   </div>
 </div>
 

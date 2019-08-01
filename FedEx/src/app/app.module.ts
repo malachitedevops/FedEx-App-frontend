@@ -15,7 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
-import { BrowserAnimationsModule } from '@ang0ular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeworkCreateService } from './services/homework-create.service';
 
 import {
@@ -39,9 +39,7 @@ import {
   MatDatepickerModule,
   MatNativeDateModule
 } from '@angular/material';
-
-import { HomeworkService } from './services/homework.service'
-import { HttpClientModule } from '@angular/common/http';
+import { HomeworkService } from './services/homework.service';
 
 @NgModule({
   declarations: [
@@ -87,5 +85,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeworkService,
     HomeworkCreateService
   ],
+  bootstrap: [ AppComponent ],
+  entryComponents: [ ErrorDialogComponent ]
 })
 export class AppModule { }

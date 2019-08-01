@@ -26,7 +26,6 @@ export class ListHomeworksComponent implements OnInit {
         homework.created = homework.created.split('T')[0];
       })
       this.homeworks = homeworks;
-      console.log(this.homeworks);
     });
   }
 }

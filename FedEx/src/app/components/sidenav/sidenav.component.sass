@@ -1,25 +1,37 @@
 .subjects
-  align-items: center
   display: flex
   flex-direction: column
   font-family: 'Roboto', sans-serif
   height: 35vh
   justify-content: space-between
   margin: 1vh
+  width: 20vw
 
-  .subject
-    border: 1px solid #ccc
-    border-radius: 5px
-    color: #fff
-    height: 40px
-    font-size: 20px
-    line-height: 40px
-    text-align: center
-    width: 20vw
-    vertical-align: middle
-
-  .subject:hover
+  .button_container:hover
     cursor: pointer
+    background: linear-gradient(to right, #57a1c6 5%, #69bace 100%)
+    color: #fff
+
+  .button_container
+    display: flex
+    width: 100%
+    border-radius: 4px
+    height: 35px
+    line-height: 40px
+    align-items: center
+    padding: 6px
+    margin: 3px 10px
+
+    .subject
+      width: 18px
+      height: 18px
+      border-radius: 9px
+      margin-right: 10px
+
+    .text
+      font-weight: 600
+      letter-spacing: 3px
+      font-size: 14px
 
   .biology
     background-color: #FFD275
@@ -28,7 +40,7 @@
     background-color: #F99AD0
 
   .literature
-    background-color: #0094C6
+    background-color: #06D6A0
 
   .it
     background-color: #9A98D3
