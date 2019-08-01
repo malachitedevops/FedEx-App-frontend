@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HomeworkService } from 'src/app/services/homework.service';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ClassService } from 'src/app/services/class.service';
 
 @Component({
   selector: 'app-homework-full',
@@ -19,22 +20,31 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
   private homeWorkSubs: Subscription;
   private userRole: string;
   private userName: string;
+  private classNumber: number;
 
 
 
   constructor(
     private route: ActivatedRoute,
     private homeworkService: HomeworkService,
-    private authenticationService: AuthenticationService) { }
+    private authenticationService: AuthenticationService,
+    private classService: ClassService) { }
 
   ngOnInit() {
     //Get homework from URL by id
     this.url = this.route.snapshot.queryParams.homeworkId;
-    this.homeWorkSubs = this.homeworkService.getOneHomework(this.url).subscribe(response => {this.homework = response[0]; this.submitSolution(); this.approveSolution()})
+    this.homeWorkSubs = this.homeworkService.getOneHomework(this.url).subscribe(response => {
+      this.homework = response[0]; 
+      this.submitSolution(); 
+      this.approveSolution();
+      this.classService.getclassNumber(this.homework.classCode).subscribe(response => this.classNumber = response['number'])
+    })
 
     //Get login user role
     this.userRole = this.authenticationService.getUserRoleLocal();
     this.userName = this.authenticationService.getUsernameLocal();
+
+    
 
   }
 

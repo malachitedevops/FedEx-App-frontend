@@ -16,6 +16,7 @@ export class SidenavComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getRoleFromLocal()
 
   }
 

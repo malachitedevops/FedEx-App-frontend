@@ -31,7 +31,4 @@ export class HomeworkService {
     return this.http.patch(`${environment.serverURL}/homework/${solutionId}`, {headers: { 'content-type': 'application/json' }});
   }
 
-  getclassNumber(classId) {
-    return this.http.get(`${environment.serverURL}/class/${classId}`, {headers: { 'content-type': 'application/json' }});
-  }
 }
