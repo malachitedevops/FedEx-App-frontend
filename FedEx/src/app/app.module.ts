@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 
 import { HomeworkService } from './services/homework.service'
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [
     HomeworkService
