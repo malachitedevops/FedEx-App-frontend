@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ClassService } from './services/class.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -69,7 +71,7 @@ import {
     MatBadgeModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ClassService],
   bootstrap: [AppComponent],
   entryComponents: [ ErrorDialogComponent]
 })

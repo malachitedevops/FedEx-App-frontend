@@ -22,7 +22,6 @@ $break-medium: 700px
     display: flex
     width: auto
     max-width: 100px
-    cursor: pointer
 
     .logoPic
       background: url('../../../assets/logo_original.png')
@@ -38,6 +37,8 @@ $break-medium: 700px
       font-family: 'Montserrat', sans-serif
       font-size: 1.5rem
       font-weight: bold
+      @media screen and (max-width: $break-large)
+        display: none
 
   .dropDownDiv
     border: 2px solid #57A1C6
@@ -50,6 +51,8 @@ $break-medium: 700px
     .title
       font-size: 1.2rem
       margin-right: 15px
+      @media screen and (max-width: $break-large)
+        display: none
 
     .selection
       font-size: 0.9rem
@@ -69,6 +72,10 @@ $break-medium: 700px
       padding: 0
       @media screen and (max-width: $break-large)
         width: auto
+
+      .hello
+        @media screen and (max-width: $break-large)
+          display: none
 
       .user_avatar
         background-position: center

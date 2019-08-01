@@ -1,37 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../../services/authentication.service';
+import { ClassService } from '../../services/class.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.sass']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
-  public userNameLocal: string = 'tomiT';
-  public userPicturePath: string = 'https://fedeximages-51d4a1c.s3.amazonaws.com/avatars/teacher.png';
+  public userNameLocal: string;
+  public userPicturePath: string;
   public selectedClass: string;
-  public classList: any = [
-    {name: 'Class 1A'},
-    {name: 'Class 3B'},
-    {name: 'Class 4C'}
-  ];
-  public teacherLoggedIn: boolean = true;
+  public classList: any;
+  public teacherLoggedIn: boolean;
+  private classesSub: Subscription;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private classService: ClassService
   ) { }
 
   ngOnInit() {
+    this.userNameLocal = this.authenticationService.getUsernameLocal();
+    this.userPicturePath = this.authenticationService.getUserAvatarLocal();
+    this.teacherLoggedIn = this.authenticationService.getUserRoleLocal() === 'teacher';
+    this.classesSub = this.classService.getClasses()
+    .subscribe((classes: object[]) => {
+      this.classList = classes;
+    });
   }
 
-  onRedirect(route: string) {
-    this.router.navigate([route]);
+  ngOnDestroy() {
+    this.classesSub.unsubscribe();
   }
 
   onlogout(route: string) {
-    // this.authenticationService.logoutUserService();
-    this.onRedirect(route);
+    this.authenticationService.logoutUserService();
+    this.router.navigate([route]);
   }
 
 }
