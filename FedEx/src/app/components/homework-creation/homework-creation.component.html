@@ -33,6 +33,15 @@
         </mat-select>
       </mat-form-field>
 
+      <mat-form-field>
+        <mat-label>Select Class</mat-label>
+        <mat-select matInput formControlName="subject">
+          <mat-option *ngFor="let class of classList" value="{{class.name}}">
+            {{class.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
       <mat-form-field class="datePicker">
         <input matInput formControlName="picker" [matDatepicker]="picker" placeholder="Set the deadline" >
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
