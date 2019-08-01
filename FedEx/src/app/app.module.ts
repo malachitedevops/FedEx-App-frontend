@@ -11,13 +11,12 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomeworkCreationComponent } from './components/homework-creation/homework-creation.component';
 import { HeaderComponent } from './components/header/header.component';
-import { PopupComponent } from './components/popup/popup/popup.component';
+import { PopupComponent } from './components/popup/popup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeworkCreateService } from './services/homework-create.service';
 
 import {
