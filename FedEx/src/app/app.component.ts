@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -28,4 +28,7 @@ export class AppComponent {
         window.scrollTo(0, 0);
       }
     });}
+
+
+    
 }

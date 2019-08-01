@@ -12,6 +12,8 @@ import { Subject, Observable } from 'rxjs';
 export class ClassService {
 
   private classes = new Subject<any>();
+  private selectedClassSubject = new Subject<any>();
+  selectedClass = this.selectedClassSubject.asObservable()
 
   constructor(
     private http: HttpClient, 
@@ -40,6 +42,10 @@ export class ClassService {
         panelClass: ['snackbar']
       });
     });
+  }
+
+  selectClass(className) {
+    this.selectedClassSubject.next(className)
   }
 
   getclassNumber(classId) {

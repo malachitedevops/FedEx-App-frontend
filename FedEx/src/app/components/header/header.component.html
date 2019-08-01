@@ -7,7 +7,7 @@
       <h2 class="title">Choose a class:</h2>
       <mat-form-field class="selection">
         <mat-label>Classes</mat-label>
-        <mat-select [(value)]="selectedClass">
+        <mat-select formControl="dropDown">
           <mat-option *ngFor="let class of classList" [value]="class.name">
             {{class.name}}
           </mat-option>
