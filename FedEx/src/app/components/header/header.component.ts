@@ -27,16 +27,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    
+    this.dropDown = new FormControl();
     this.userNameLocal = this.authenticationService.getUsernameLocal();
     this.userPicturePath = this.authenticationService.getUserAvatarLocal();
     this.teacherLoggedIn = this.authenticationService.getUserRoleLocal() === 'teacher';
     this.classesSub = this.classService.getClasses()
     .subscribe((classes: object[]) => {
       this.classList = classes;
-      console.log(this.classList[0].name)
-      this.dropDown = new FormControl({value: this.classList[0].name});
       this.dropDown.valueChanges.subscribe(value => this.classService.selectClass(value));
+      this.dropDown.setValue(this.classList[0].code)
     });
   }
 

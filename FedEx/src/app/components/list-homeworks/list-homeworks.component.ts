@@ -12,7 +12,7 @@ import { ClassService } from 'src/app/services/class.service';
 export class ListHomeworksComponent implements OnInit {
 
 
-  private classCode: string = '10001';
+  private classCode: string;
   private homeworks: object[];
 
   subject: string = 'Math';
@@ -21,15 +21,17 @@ export class ListHomeworksComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.homeworkService.getHomeworks(this.classCode)
+    
+    this.classService.selectedClass.subscribe(value => {
+      this.classCode = value;
+      this.homeworkService.getHomeworks(this.classCode)
     .subscribe((homeworks: any) => {
       this.homeworks = homeworks;
     });
-    this.classService.selectedClass.subscribe(value => console.log(value))
+    })
   }
 
   selectHomework(homework) {
-    console.log(homework._id)
     this.router.navigate([`/homework`], { queryParams: { homeworkId: homework._id } });
   }
 

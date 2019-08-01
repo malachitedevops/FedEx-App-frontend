@@ -21,8 +21,8 @@ export class HomeworkService {
     });
   }
 
-  submitSolution(homeworkId, username, content) {
-    return this.http.post(`${environment.serverURL}/homework/solution`, {homeworkId, username, content}, {headers: { 'content-type': 'application/json' }}
+  submitSolution(homeworkId, username, content, userPhoto) {
+    return this.http.post(`${environment.serverURL}/homework/solution`, {homeworkId, username, content, userPhoto}, {headers: { 'content-type': 'application/json' }}
     );
   }
 

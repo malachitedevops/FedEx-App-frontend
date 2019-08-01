@@ -48,6 +48,7 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
   private userRole: string;
   private userName: string;
   private classNumber: number;
+  private userAvatar: string
 
 
 
@@ -61,12 +62,9 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
     //Get homework from URL by id
     this.url = this.route.snapshot.queryParams.homeworkId;
     this.homeWorkSubs = this.homeworkService.getOneHomework(this.url).subscribe(response => {
-      this.homework = response[0];
-      this.homework.solutions.map(solution => {
-        solution.timestamp = solution.timestamp.split('T')[0];
-      });
-      // this.submitSolution();
-      // this.approveSolution();
+      this.homework = response[0]; 
+      console.log(this.homework)
+      
       this.classService.getclassNumber(this.homework.classCode).subscribe(response => this.classNumber = response['number'])
     })
 
@@ -78,6 +76,14 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
     this.userRole = this.authenticationService.getUserRoleLocal();
     // this.userRole === 'teacher' ? this.isTeacher = true : this.isTeacher = false;
     this.userName = this.authenticationService.getUsernameLocal();
+    this.userAvatar = this.authenticationService.getUserAvatarLocal();
+
+    setTimeout(()=> {
+      this.submitSolution(); 
+      this.approveSolution();
+    },1000)
+    
+
   }
 
   ngOnDestroy() {
@@ -87,7 +93,8 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
   //Submit new solution if user is student
   submitSolution(content: string) {
     if (this.userRole === 'student') {
-      this.homeworkService.submitSolution(this.homework._id, this.userName, content).subscribe(response => {
+      const content = 'HelloÚj2'; //form['content']
+      this.homeworkService.submitSolution(this.homework._id, this.userName, content, this.userAvatar).subscribe(response => {
         if (response['message'] === 'solution added') {
           this.haveSolution = true;
         }
