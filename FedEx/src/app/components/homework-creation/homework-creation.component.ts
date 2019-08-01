@@ -37,6 +37,7 @@ export class HomeworkCreationComponent implements OnInit {
       shortDesc: new FormControl('', [Validators.required, Validators.maxLength(100)]),
       content: new FormControl('', [Validators.required]),
       subject: new FormControl('', [Validators.required]),
+      class: new FormControl('', [Validators.required]),
       picker: new FormControl(new Date(), [Validators.required]),
     },{validator: this.dateCheck('picker')});
   }
@@ -52,7 +53,7 @@ export class HomeworkCreationComponent implements OnInit {
       created: Date.now(),
       subject: form.value.subject,
       teacherName: this.autService.getUsernameLocal(),
-      className: 'class1',
+      className: form.value.class,
       classCode: '121212',
       solutions: ''
     };
