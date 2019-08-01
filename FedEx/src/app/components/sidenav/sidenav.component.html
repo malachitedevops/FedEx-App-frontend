@@ -1,4 +1,5 @@
 <div class="subjects">
+  <div class="createClassButton" *ngIf="getRoleFromLocal()"(click)="openPopUp('createClass')">Create New Class</div>
   <div class="button_container">
     <div class="subject biology"></div>
     <div class="text">Biology</div>
@@ -23,6 +24,8 @@
     <div class="subject physics"></div>
     <div class="text">Physics</div>
   </div>
-<div *ngIf="getRoleFromLocal()">
-  <button mat-raised-button (click)="openPopUp('createClass')" class="createClassButton">Create New Class</button>
+  <div class="button_container">
+    <div class="subject english"></div>
+    <div class="text">English</div>
+  </div>
 </div>
