@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { PopupComponent } from '../popup/popup.component';
 import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,6 +13,7 @@ export class SidenavComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
+    private router: Router,
     private authenticationService: AuthenticationService
   ) { }
 
@@ -37,6 +39,11 @@ export class SidenavComponent implements OnInit {
     dialogConfig.data = {newClass};
     dialogConfig.width = '30vw';
     this.dialog.open(PopupComponent, dialogConfig);
+  }
+
+  createHomework() {
+    console.log('hello');
+    this.router.navigate(['/createhomework']);
   }
 
 }
