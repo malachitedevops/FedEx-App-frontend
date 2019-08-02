@@ -31,7 +31,7 @@ export class AuthenticationService {
       { headers: { 'Content-Type': 'application/json' } }).subscribe(
         (response: Response) => {
           console.log(response)
-          this.storeTokens(response['username'], response['profilePicture'], response['_id'], response['role']);
+          this.storeTokens(response['username'], response['avatarPath'], response['_id'], response['role']);
           this.router.navigate(['/home']);
         },
         (error) => {

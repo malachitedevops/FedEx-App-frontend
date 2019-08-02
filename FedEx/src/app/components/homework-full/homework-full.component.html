@@ -1,4 +1,50 @@
 <div class="main-container">
+  <div class="wrapper">
+    <div class="homework">
+      <div class="subject_picture"></div>
+      <div class="homework_text">
+        <div class="homework_title">{{homework.title}}</div>
+        <div class="stat">
+          <div class="homework_teacher"> Submitted by {{homework.teacherName}}</div>
+          <div class="solutions_stat">
+            <div class="solution_counter">{{homework.solutions.length}}/{{classNumber}} solutions received</div>
+          </div>
+        </div>
+        <div class="homework_content">{{homework.content}}</div>
+      </div>
+    </div>
+    <div class="own_solution" *ngIf="!haveSolution && !isTeacher">
+      <form class="input-form">
+        <mat-form-field>
+          <textarea matInput #solution placeholder="Add your solution"></textarea>
+        </mat-form-field>
+      </form>
+      <button mat-raised-button (click)="submitSolution(solution.value)">SUBMIT</button>
+    </div>
+    <div class="other_solutions" *ngIf="haveSolution || isTeacher">
+      <div class="solution" *ngFor="let solution of homework.solutions" [ngClass]="{'approved': solution.approved === 'true',
+    'declined': solution.approved === 'false'}">
+        <div class="userData">
+          <div class="user_avatar" [style.backgroundImage]="'url('+solution.avatarPath+')'"></div>
+          <div class="username"><p>{{solution.username}}</p></div>
+          <div class="submitDate">
+            <p>Submitted on:</p>
+            <p>{{solution.timestamp}}</p>
+          </div>
+        </div>
+        <div class="sol_body">
+          <p>{{solution.content}}</p>
+        </div>
+        <div class="grade">
+          <button class="matButton" mat-button (click)='approveSolution(solution._id)'><mat-icon>done</mat-icon></button>
+          <button class="matButton" mat-button (click)='declineSolution(solution._id)'><mat-icon>close</mat-icon></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="main-container">
   <div class="homework">
     <div class="subject_picture"></div>
     <div class="homework_text">

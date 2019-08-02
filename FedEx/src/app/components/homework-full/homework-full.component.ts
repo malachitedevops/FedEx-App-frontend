@@ -43,7 +43,7 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
     ]
   };
   public isTeacher;
-  public haveSolution;
+  public haveSolution = true;
   private url: string;
   private homeWorkSubs: Subscription;
   private userRole: string;
@@ -77,6 +77,7 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
       const studentSolutionArr = this.homework.solutions.filter(solution => solution.username === this.userName);
       studentSolutionArr.length !== 0 ? this.haveSolution = true : this.haveSolution = false;
       this.classService.getclassNumber(this.homework.classCode).subscribe(response => this.classNumber = response['number'])
+      console.log(this.homework.solutions)
     })
 
     // setTimeout(()=> {
@@ -111,11 +112,39 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
   }
 
   //Approve solution by teacher
-  approveSolution() {
+  approveSolution(solutionId) {
     if (this.userRole === 'teacher') {
       //send save approve to this solution
-      let solutionId = this.homework.solutions[0]._id
-      this.homeworkService.approveSolution(solutionId).subscribe(response => console.log(response));
+      // let solutionId = this.homework.solutions[0]._id
+      this.homeworkService.approveSolution(solutionId).subscribe(response => {
+            this.homeWorkSubs = this.homeworkService.getOneHomework(this.url).subscribe(response => {
+              this.homework = response[0];
+              this.homework.solutions.map(solution => {
+                solution.timestamp = solution.timestamp.split('T')[0];
+              });
+              const studentSolutionArr = this.homework.solutions.filter(solution => solution.username === this.userName);
+              studentSolutionArr.length !== 0 ? this.haveSolution = true : this.haveSolution = false;
+              this.classService.getclassNumber(this.homework.classCode).subscribe(response => this.classNumber = response['number'])
+            });
+          })
+    }
+  }
+
+  declineSolution(solutionId) {
+    if (this.userRole === 'teacher') {
+      //send save approve to this solution
+      // let solutionId = this.homework.solutions[0]._id
+      this.homeworkService.approveSolution(solutionId).subscribe(response => {
+        this.homeWorkSubs = this.homeworkService.getOneHomework(this.url).subscribe(response => {
+          this.homework = response[0];
+          this.homework.solutions.map(solution => {
+            solution.timestamp = solution.timestamp.split('T')[0];
+          });
+          const studentSolutionArr = this.homework.solutions.filter(solution => solution.username === this.userName);
+          studentSolutionArr.length !== 0 ? this.haveSolution = true : this.haveSolution = false;
+          this.classService.getclassNumber(this.homework.classCode).subscribe(response => this.classNumber = response['number'])
+        });
+      })
     }
   }
 

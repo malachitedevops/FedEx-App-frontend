@@ -28,7 +28,13 @@ export class HomeworkService {
 
   approveSolution(solutionId) {
     console.log('approve service')
-    return this.http.patch(`${environment.serverURL}/homework/${solutionId}`, {headers: { 'content-type': 'application/json' }});
+    return this.http.patch(`${environment.serverURL}/homework/approve/${solutionId}`, {headers: { 'content-type': 'application/json' }});
+  }
+
+  declineSolution(solutionId) {
+    console.log('decline service')
+    return this.http.patch(`${environment.serverURL}/homework/decline/${solutionId}`, {headers: { 'content-type': 'application/json' }});
+
   }
 
 }
