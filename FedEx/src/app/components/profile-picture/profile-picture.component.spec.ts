@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfilePictureComponent } from './profile-picture.component';
+import { RouterTestingModule } from '@angular/router/testing';
 import {
   MatIconModule,
   MatDialogModule
@@ -16,7 +17,8 @@ describe('ProfilePictureComponent', () => {
       imports: [
         MatIconModule,
         MatDialogModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        RouterTestingModule
       ],
       declarations: [ ProfilePictureComponent ]
     })

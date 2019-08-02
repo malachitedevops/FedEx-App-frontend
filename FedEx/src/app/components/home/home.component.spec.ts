@@ -6,7 +6,16 @@ import { ListHomeworksComponent } from '../list-homeworks/list-homeworks.compone
 import { SidenavComponent } from '../sidenav/sidenav.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { MatToolbarModule, MatInputModule, MatSelectModule, MatMenuModule, MatCardModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatInputModule,
+  MatSelectModule,
+  MatMenuModule,
+  MatCardModule,
+  MatDialogModule,
+  MatSnackBarModule,
+  MatIconModule
+} from '@angular/material';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -14,11 +23,11 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
-        HomeComponent, 
-        HeaderComponent, 
-        ListHomeworksComponent, 
-        SidenavComponent 
+      declarations: [
+        HomeComponent,
+        HeaderComponent,
+        ListHomeworksComponent,
+        SidenavComponent
       ],
       imports: [
         MatToolbarModule,
@@ -29,7 +38,8 @@ describe('HomeComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule,
         MatDialogModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatIconModule
       ]
     })
     .compileComponents();

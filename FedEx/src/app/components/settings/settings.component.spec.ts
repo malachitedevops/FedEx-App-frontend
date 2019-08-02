@@ -4,6 +4,7 @@ import { SettingsComponent } from './settings.component';
 import { ProfilePictureComponent } from '../profile-picture/profile-picture.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import {
   MatExpansionModule,
   MatIconModule,
@@ -21,7 +22,8 @@ describe('SettingsComponent', () => {
         MatIconModule,
         MatDialogModule,
         BrowserAnimationsModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        RouterTestingModule
       ],
       declarations: [
         SettingsComponent,
