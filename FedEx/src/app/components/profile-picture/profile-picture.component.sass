@@ -1,0 +1,70 @@
+.main-container
+  display: flex
+  justify-content: space-between
+  margin-bottom: 3%
+
+  .cdk-focused, .cdk-mouse-focused
+    outline: none
+
+  .picture
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    border-radius: 50%
+    border-style: dashed
+    display: flex
+    height: 200px
+    justify-content: center
+    margin-bottom: 50px
+    margin-right: 15%
+    min-width: 200px
+
+    .controls
+      display: flex
+      justify-content: center
+      position: relative
+      top: 110%
+
+      .mat-icon-button
+        background-color: #f4f6f6
+        margin: 0 10%
+
+      .mat-icon-button:first-child, .mat-icon-button:nth-child(2)
+        color: #747474
+
+      .mat-icon-button:nth-child(2):disabled
+        color: #b0b0b0
+
+      .mat-icon-button:last-child
+          color: #eb4f3c
+
+  .choose
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    width: 70%
+
+    .buttons
+      bottom: 5%
+      display: flex
+      flex-direction: row
+      justify-content: space-around
+      margin: 0 auto
+      position: relative
+      width: 90%
+
+
+      input[type="file"]
+        position: absolute
+        visibility: hidden
+
+      button
+        background: linear-gradient(to right, #ec5624 5%, #eb4f3c 100%)
+        border-radius: 5px
+        font-size: 15px
+        color: #f3f3f3
+        letter-spacing: 1px
+        width: 45%
+
+        .mat-icon
+          margin-right: 3%

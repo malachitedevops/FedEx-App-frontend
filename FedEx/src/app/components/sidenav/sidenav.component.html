@@ -1,3 +1,6 @@
+<div *ngIf="getRoleFromLocal()">
+  <button mat-raised-button (click)="openPopUp('createClass')" class="createClassButton">Create New Class</button>
+</div>
 <div class="subjects">
   <div class="createClassButton" *ngIf="getRoleFromLocal()"(click)="openPopUp('createClass')">Create New Class</div>
   <div class="createClassButton" *ngIf="getRoleFromLocal()"(click)="createHomework()">Create New Homework</div>
