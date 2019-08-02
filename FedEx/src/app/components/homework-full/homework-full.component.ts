@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Homework } from '../../models/homework';
 import { ActivatedRoute } from '@angular/router';
 import { HomeworkService } from 'src/app/services/homework.service';
@@ -29,7 +30,7 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
       _id: '5d432b2d7909eb62663ffc6b',
       timestamp: '2019-08-01T18:08:27.009+00:00',
       approved: true,
-      username: "tomiS",
+      username: "user",
       content: "Hello",
       },
       {
@@ -41,8 +42,8 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
       }
     ]
   };
-  public isTeacher = true;
-  public haveSolution = false;
+  public isTeacher;
+  public haveSolution;
   private url: string;
   private homeWorkSubs: Subscription;
   private userRole: string;
@@ -54,36 +55,34 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private homeworkService: HomeworkService,
     private authenticationService: AuthenticationService,
     private classService: ClassService) { }
 
   ngOnInit() {
-    //Get homework from URL by id
-    this.url = this.route.snapshot.queryParams.homeworkId;
-    this.homeWorkSubs = this.homeworkService.getOneHomework(this.url).subscribe(response => {
-      this.homework = response[0]; 
-      console.log(this.homework)
-      
-      this.classService.getclassNumber(this.homework.classCode).subscribe(response => this.classNumber = response['number'])
-    })
-
-    this.homework.solutions.map(solution => {
-      solution.timestamp = solution.timestamp.split('T')[0];
-    });
-
     //Get login user role
     this.userRole = this.authenticationService.getUserRoleLocal();
-    // this.userRole === 'teacher' ? this.isTeacher = true : this.isTeacher = false;
+    this.userRole === 'teacher' ? this.isTeacher = true : this.isTeacher = false;
     this.userName = this.authenticationService.getUsernameLocal();
     this.userAvatar = this.authenticationService.getUserAvatarLocal();
 
-    setTimeout(()=> {
-      //this.submitSolution(); 
-      this.approveSolution();
-    },1000)
-    
+    //Get homework from URL by id
+    this.url = this.route.snapshot.queryParams.homeworkId;
+    this.homeWorkSubs = this.homeworkService.getOneHomework(this.url).subscribe(response => {
+      this.homework = response[0];
+      this.homework.solutions.map(solution => {
+        solution.timestamp = solution.timestamp.split('T')[0];
+      });
+      const studentSolutionArr = this.homework.solutions.filter(solution => solution.username === this.userName);
+      studentSolutionArr.length !== 0 ? this.haveSolution = true : this.haveSolution = false;
+      this.classService.getclassNumber(this.homework.classCode).subscribe(response => this.classNumber = response['number'])
+    })
 
+    // setTimeout(()=> {
+    //   //this.submitSolution();
+    //   this.approveSolution();
+    // },1000)
   }
 
   ngOnDestroy() {
@@ -93,10 +92,19 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
   //Submit new solution if user is student
   submitSolution(content?: string) {
     if (this.userRole === 'student') {
-      const content = 'HelloÚj2'; //form['content']
+      // const content = 'HelloÚj2'; //form['content']
       this.homeworkService.submitSolution(this.homework._id, this.userName, content, this.userAvatar).subscribe(response => {
         if (response['message'] === 'solution added') {
           this.haveSolution = true;
+          this.homeWorkSubs = this.homeworkService.getOneHomework(this.url).subscribe(response => {
+            this.homework = response[0];
+            this.homework.solutions.map(solution => {
+              solution.timestamp = solution.timestamp.split('T')[0];
+            });
+            const studentSolutionArr = this.homework.solutions.filter(solution => solution.username === this.userName);
+            studentSolutionArr.length !== 0 ? this.haveSolution = true : this.haveSolution = false;
+            this.classService.getclassNumber(this.homework.classCode).subscribe(response => this.classNumber = response['number'])
+          });
         }
       })
     }
