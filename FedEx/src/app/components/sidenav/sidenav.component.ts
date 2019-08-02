@@ -38,7 +38,6 @@ export class SidenavComponent implements OnInit {
       className:''
     }
     dialogConfig.data = {newClass};
-    dialogConfig.width = '30vw';
     this.dialog.open(PopupComponent, dialogConfig);
   }
 

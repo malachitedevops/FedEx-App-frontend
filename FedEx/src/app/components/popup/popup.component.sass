@@ -1,3 +1,5 @@
+$break-large: 1024px
+
 .mat-dialog-content
   align-items: center
   display: flex
@@ -8,8 +10,12 @@
   padding: 0
   text-align: center
   border-radius: 10px
+  width: 40vw
+  margin: auto
+  @media screen and (max-width: $break-large)
+    width: 90%
 
-  .message 
+  .message
     color: #69bace
 
   input
@@ -17,6 +23,9 @@
     width: 67%
     height: 40px
     border-radius: 10px
+    @media screen and (max-width: $break-large)
+      width: 90%
+      margin: auto
 
 .mat-dialog-actions
   display: flex
@@ -38,4 +47,3 @@
     color: #69bace
     letter-spacing: 3px
     border: 2px solid #69bace
-
