@@ -26,6 +26,10 @@ export class ListHomeworksComponent implements OnInit {
       this.classCode = value;
       this.homeworkService.getHomeworks(this.classCode)
     .subscribe((homeworks: any) => {
+      homeworks.map(homework => {
+        homework.deadline = homework.deadline.split('T')[0];
+        homework.created = homework.created.split('T')[0];
+      })
       this.homeworks = homeworks;
     });
     })

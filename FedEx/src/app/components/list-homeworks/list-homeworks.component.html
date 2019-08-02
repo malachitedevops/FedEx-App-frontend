@@ -1,23 +1,42 @@
-<div class="hw_container" 
-  [ngClass]="{'Math': homework.subject === 'Math', 
-  'Literature': homework.subject === 'Literature'}" 
-  *ngFor="let homework of homeworks" (click)="selectHomework(homework)">
+<div class="no_hw">
+  <h2 *ngIf="homeworks && !homeworks.length">There is no homework in this class</h2>
+</div>
+<div class="main_container" *ngIf="homeworks && homeworks.length">
+<div class='title'>
+  <h3>Class name: {{homeworks[0].className}}</h3>
+  <h3>Class code: {{homeworks[0].classCode}}</h3>
+</div>
+<div class="hw_container"
+*ngFor="let homework of homeworks">
+  <div class="subject">
+    <div class="{{homework.subject}}"></div>
+    <p class="subject_name">{{homework.subject}}</p>
+  </div>
   <div class="header">
     <div class="teacher">
       <div class="avatar"></div>
       <p class="teacher_name">{{homework.teacherName}}</p>
+      <div class="created">
+        <p>Created:</p>
+        <p>{{homework.created}}</p>
+      </div>
     </div>
-    <p class="homework_title">{{ homework.title }}</p>
-    <div class="subject">
-      <p class="subject_name">{{homework.subject}}</p>
-      <div class="{{homework.subject}}"></div>
-    </div>
+    <div class="submissions">16 submissions</div>
   </div>
   <mat-card-content>
-    <p class="short_desc">
-      {{homework.shortDesc}}
-    </p>
+    <div class="homework_details">
+      <p class="homework_title">{{ homework.title }}</p>
+      <p class="short_desc">{{homework.shortDesc}}</p>
+    </div>
+    <div class="deadline">
+      <p class="dl">Deadline:</p>
+      <p class="date">{{homework.deadline}}</p>
+    </div>
   </mat-card-content>
-  <mat-card-actions>
-  </mat-card-actions>
 </div>
+
+<!--
+[ngClass]="{'Math': homework.subject === 'Math',
+'Literature': homework.subject === 'Literature',
+'Physics': homework.subject === 'Physics',
+'Biology': homework.subject === 'Biology'}" -->

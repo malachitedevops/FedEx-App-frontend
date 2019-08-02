@@ -91,7 +91,7 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
   }
 
   //Submit new solution if user is student
-  submitSolution(content: string) {
+  submitSolution(content?: string) {
     if (this.userRole === 'student') {
       const content = 'HelloÚj2'; //form['content']
       this.homeworkService.submitSolution(this.homework._id, this.userName, content, this.userAvatar).subscribe(response => {

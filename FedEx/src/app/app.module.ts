@@ -11,7 +11,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomeworkCreationComponent } from './components/homework-creation/homework-creation.component';
 import { HeaderComponent } from './components/header/header.component';
-import { PopupComponent } from './components/popup/popup/popup.component';
+import { PopupComponent } from './components/popup/popup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -40,8 +40,8 @@ import {
   MatDatepickerModule,
   MatNativeDateModule
 } from '@angular/material';
-import { HomeworkFullComponent } from './components/homework-full/homework-full.component';
 import { HomeworkService } from './services/homework.service';
+import { HomeworkFullComponent } from './components/homework-full/homework-full.component';
 
 @NgModule({
   declarations: [
@@ -85,11 +85,8 @@ import { HomeworkService } from './services/homework.service';
     MatNativeDateModule,
     MatSnackBarModule
   ],
-  providers: [
-    ClassService,
-    HomeworkCreateService,
-    HomeworkService
-  ],
+  providers: [ClassService,
+             HomeworkCreateService],
   bootstrap: [AppComponent],
   entryComponents: [ PopupComponent, ErrorDialogComponent]
 
