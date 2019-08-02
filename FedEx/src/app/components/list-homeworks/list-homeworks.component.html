@@ -6,8 +6,8 @@
   <h3>Class name: {{homeworks[0].className}}</h3>
   <h3>Class code: {{homeworks[0].classCode}}</h3>
 </div>
-<div class="hw_container"
-*ngFor="let homework of homeworks">
+<div class="hw_container" 
+*ngFor="let homework of homeworks" (click)="selectHomework(homework)">
   <div class="subject">
     <div class="{{homework.subject}}"></div>
     <p class="subject_name">{{homework.subject}}</p>
