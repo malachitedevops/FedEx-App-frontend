@@ -28,14 +28,14 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
     solutions: [
       {
       _id: '5d432b2d7909eb62663ffc6b',
-      timestamp: '2019-08-01T18:08:27.009+00:00',
+      timestamp: '2019-08-01',
       approved: true,
       username: "user",
       content: "Hello",
       },
       {
       _id: '5d432b2d7909eb62663ffc6b',
-      timestamp: '2019-08-01T18:08:27.009+00:00',
+      timestamp: '2019-08-01',
       approved: true,
       username: "tomiS",
       content: "Hello",
