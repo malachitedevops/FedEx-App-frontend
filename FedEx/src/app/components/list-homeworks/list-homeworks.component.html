@@ -1,3 +1,11 @@
+<div class="no_hw">
+  <h2 *ngIf="homeworks && !homeworks.length">There is no such homework</h2>
+</div>
+<div class="main_container" *ngIf="homeworks && homeworks.length">
+<div class='title'>
+  <h3>Class name: {{homeworks[0].className}}</h3>
+  <h3>Class code: {{homeworks[0].classCode}}</h3>
+</div>
 <div class="hw_container" 
 *ngFor="let homework of homeworks">
   <div class="subject">
@@ -26,6 +34,7 @@
     </div>
   </mat-card-content>
 </div>
+
 <!-- 
 [ngClass]="{'Math': homework.subject === 'Math', 
 'Literature': homework.subject === 'Literature', 
