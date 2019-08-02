@@ -1,57 +1,53 @@
-<div>
-  <div class="form_div">
-    <form [formGroup]="homeworkCreationForm" (ngSubmit)="createHomework(homeworkCreationForm)">
-      <h1>CREATE HOMEWORK</h1>
-      <div class="line"></div>
-      <mat-form-field>
-        <input matInput formControlName="title" autocomplete="off" />
-        <mat-placeholder class="placeholder">Title of homework</mat-placeholder>
-        <mat-error *ngIf="textHasError('title', 'required')">Title is required</mat-error>
-        <mat-error *ngIf="textHasError('title', 'maxlength')">Content can't be longer than 100 characters</mat-error>
-      </mat-form-field>
+<div class="form_div">
+  <form [formGroup]="homeworkCreationForm" (ngSubmit)="createHomework(homeworkCreationForm)">
+    <h1>CREATE HOMEWORK</h1>
+    <div class="line"></div>
+    <mat-form-field>
+      <input matInput formControlName="title" autocomplete="off" />
+      <mat-placeholder class="placeholder">Title of homework</mat-placeholder>
+      <mat-error *ngIf="textHasError('title', 'required')">Title is required</mat-error>
+      <mat-error *ngIf="textHasError('title', 'maxlength')">Content can't be longer than 100 characters</mat-error>
+    </mat-form-field>
 
-      <mat-form-field>
-        <textarea matInput formControlName="shortDesc" autocomplete="off" ></textarea>
-        <mat-placeholder class="placeholder">Short description (max 100 char)</mat-placeholder>
-        <mat-error *ngIf="textHasError('shortDesc', 'required')">Title is required</mat-error>
-        <mat-error *ngIf="textHasError('shortDesc', 'maxlength')">Content can't be longer than 100 characters</mat-error>
-      </mat-form-field>
+    <mat-form-field>
+      <textarea matInput formControlName="shortDesc" autocomplete="off"></textarea>
+      <mat-placeholder class="placeholder">Short description (max 100 char)</mat-placeholder>
+      <mat-error *ngIf="textHasError('shortDesc', 'required')">Title is required</mat-error>
+      <mat-error *ngIf="textHasError('shortDesc', 'maxlength')">Content can't be longer than 100 characters</mat-error>
+    </mat-form-field>
 
-      <mat-form-field>
-        <textarea matInput formControlName="content" autocomplete="off" ></textarea>
-        <mat-placeholder class="placeholder">Describe the homework exercise</mat-placeholder>
-        <mat-error *ngIf="textHasError('content', 'required')">Title is required</mat-error>
-        <mat-error *ngIf="textHasError('content', 'maxlength')">Content can't be longer than 100 characters</mat-error>
-      </mat-form-field>
+    <mat-form-field>
+      <textarea matInput formControlName="content" autocomplete="off"></textarea>
+      <mat-placeholder class="placeholder">Describe the homework exercise</mat-placeholder>
+      <mat-error *ngIf="textHasError('content', 'required')">Title is required</mat-error>
+      <mat-error *ngIf="textHasError('content', 'maxlength')">Content can't be longer than 100 characters</mat-error>
+    </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Select Subject</mat-label>
-        <mat-select matInput formControlName="subject">
-          <mat-option *ngFor="let subject of subjects" value="{{subject}}">
-            {{subject}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select Subject</mat-label>
+      <mat-select matInput formControlName="subject">
+        <mat-option *ngFor="let subject of subjects" value="{{subject}}">
+          {{subject}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Select Class</mat-label>
-        <mat-select matInput formControlName="class">
-          <mat-option *ngFor="let class of classList" value="{{class.name}}">
-            {{class.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select Class</mat-label>
+      <mat-select matInput formControlName="class">
+        <mat-option *ngFor="let class of classList" value="{{class.name}}">
+          {{class.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-      <mat-form-field class="datePicker">
-        <input matInput formControlName="picker" [matDatepicker]="picker" placeholder="Set the deadline" >
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="(!homeworkCreationForm.valid)">Date should be later than today</mat-error>
-      </mat-form-field>
+    <mat-form-field class="datePicker">
+      <input matInput formControlName="picker" [matDatepicker]="picker" placeholder="Set the deadline">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="(!homeworkCreationForm.valid)">Date should be later than today</mat-error>
+    </mat-form-field>
 
-      <button mat-raised-button type="submit" [disabled]="(!homeworkCreationForm.valid) " [class.disabled]="(!homeworkCreationForm.valid)">Submit</button>
-    </form>
-  </div>
+    <button mat-raised-button type="submit" [disabled]="(!homeworkCreationForm.valid) " [class.disabled]="(!homeworkCreationForm.valid)">Submit</button>
+  </form>
 </div>
-
-

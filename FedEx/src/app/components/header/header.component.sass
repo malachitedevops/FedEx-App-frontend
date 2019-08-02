@@ -1,5 +1,6 @@
 $break-large: 1024px
 $break-medium: 700px
+$break-small: 500px
 
 .header
   align-items: center
@@ -64,6 +65,8 @@ $break-medium: 700px
       font-size: 0.9rem
       position: relative
       top: 10%
+      @media screen and (max-width: $break-small)
+        max-width: 110px
 
   .userDiv
     display: flex
@@ -93,109 +96,6 @@ $break-medium: 700px
         margin-left: 15px
         width: 50px
 
-
-
-
-
-//
-//   .channels
-//     align-items: center
-//     display: flex
-//     color: #555
-//     height: 63px
-//     justify-content: center
-//     margin: 0
-//     overflow: hidden
-//     padding: 0
-//     @media screen and (max-width: $break-large)
-//       display: none
-//
-//     .focused
-//       border-radius: 0px
-//       border-bottom: 2px solid #eb4f3c
-//
-//     .mat-button
-//       height: 63px
-//
-//     .cdk-focused, .cdk-mouse-focused
-//       outline: none
-//
-//   .hamburger
-//     display: none
-//     @media screen and (max-width: $break-large)
-//       display: flex
-//       flex-direction: column
-//       justify-content: center
-//
-//     button
-//       background-color: #f5f5f5
-//       border-radius: 5px
-//       width: 100%
-//
-//     .cdk-focused, .cdk-mouse-focused
-//       outline: none
-//
-//   .userDiv
-//     background-color: yellow
-//     display: flex
-//     flex-direction: row
-//     justify-content: flex-end
-//     margin-right: 20px
-//     padding: 0
-//     max-width: 100px
-//     @media screen and (max-width: $break-large)
-//       width: auto
-//
-//     .loggedIn, .anonim
-//       align-items: center
-//       display: flex
-//       flex-direction: row
-//       justify-content: flex-end
-//
-//       .register
-//         background: linear-gradient(to right, #ec5624 5%, #eb4f3c 100%)
-//         margin-right: 25px
-//         width: 150px
-//         height: 35px
-//         border-radius: 5px
-//         font-size: 13px
-//         color: #fff
-//         letter-spacing: 3px
-//
-//       .login
-//         background: linear-gradient(to right, #eb4f3c 5%, #eb4757 100%)
-//         width: 150px
-//         height: 35px
-//         border-radius: 5px
-//         font-size: 13px
-//         color: #fff
-//         letter-spacing: 3px
-//
-//       .hello
-//         margin: 0 10px 0 0
-//
-//       .hello:hover
-//         cursor: pointer
-//
-//       .account_circle
-//         margin-top: 5px
-//         width: 50px
-//         height: 50px
-//         font-size: 50px
-//         color: #ec5624
-//
-//       .user_avatar
-//         background-position: center
-//         background-repeat: no-repeat
-//         background-size: cover
-//         border-radius: 100px
-//         height: 50px
-//         margin-top: 5px
-//         width: 50px
-//
-//       .cdk-focused, .cdk-mouse-focused
-//         outline: none
-//
 ::ng-deep .user_options
   button
     border-radius: 5px
