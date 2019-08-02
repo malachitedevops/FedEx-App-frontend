@@ -29,14 +29,15 @@ export class AuthenticationService {
       { username, password, code },
       { headers: { 'Content-Type': 'application/json' } }).subscribe(
         (response: Response) => {
-          this.storeTokens(response['username'], response['avatarPath'], response['_id'], response['role']);
+          console.log(response['profilePicture']);
+          this.storeTokens(response['username'], response['profilePicture'], response['_id'], response['role']);
           this.router.navigate(['/home']);
         },
         (error) => {
           this.dialogService.openError(error['error']['message'], error['status']);
         });
   }
-  
+
   logoutUserService() {
     this.removeTokens();
   }
