@@ -91,6 +91,7 @@ import { ProfilePictureComponent } from './components/profile-picture/profile-pi
     ClassService,
     HomeworkService,
     HomeworkCreateService,
+    ListHomeworksComponent,
     ProfilePictureService
   ],
   bootstrap: [ AppComponent ],
