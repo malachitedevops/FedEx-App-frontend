@@ -1,58 +1,14 @@
 <div class="main-container">
-  <div class="wrapper">
-    <div class="homework">
-      <div class="subject_picture"></div>
-      <div class="homework_text">
-        <div class="homework_title">{{homework.title}}</div>
-        <div class="stat">
-          <div class="homework_teacher"> Submitted by {{homework.teacherName}}</div>
-          <div class="solutions_stat">
-            <div class="solution_counter">{{solutionCount}}/{{classNumber}} solutions received</div>
-          </div>
-        </div>
-        <div class="homework_content">{{homework.content}}</div>
-      </div>
-    </div>
-    <div class="own_solution" *ngIf="!haveSolution && !isTeacher">
-      <form class="input-form">
-        <mat-form-field>
-          <textarea matInput #solution placeholder="Add your solution"></textarea>
-        </mat-form-field>
-      </form>
-      <button mat-raised-button (click)="submitSolution(solution.value)">SUBMIT</button>
-    </div>
-    <div class="other_solutions" *ngIf="haveSolution || isTeacher">
-      <div class="solution" *ngFor="let solution of homework.solutions">
-        <div class="userData">
-          <div class="user_avatar"></div><div class="username"><p>{{solution.username}}</p></div>
-          <div class="submitDate">
-            <p>Submitted on:</p>
-            <p>{{solution.timestamp}}</p>
-          </div>
-        </div>
-        <div class="sol_body">
-          <p>{{solution.content}}</p>
-        </div>
-        <div class="grade">
-          <button class="matButton" mat-button><mat-icon>done</mat-icon></button>
-          <button class="matButton" mat-button><mat-icon>close</mat-icon></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- <div class="main-container">
   <div class="homework">
     <div class="subject_picture"></div>
-    <div class="homework_body">
-      <div class="homework_text">
-        <div class="homework_title">{{homework.title}}</div>
-        <div class="homework_teacher">Submitted by {{homework.teacherName}}</div>
-        <div class="homework_content">{{homework.content}}</div>
+    <div class="homework_text">
+      <div class="stat">
+        <div class="homework_teacher"> Submitted by {{homework.teacherName}}</div>
+        <div class="solution_counter">16 submissions</div>
       </div>
-      <div class="solutions_stat">
-        <div class="solution_counter">{{solutionCount}}/{{classNumber}} solutions received</div>
+      <div class="homework_details">
+        <div class="homework_title">{{homework.title}}</div>
+        <div class="homework_content">{{homework.content}}</div>
       </div>
     </div>
   </div>
@@ -66,19 +22,20 @@
   </div>
   <div class="other_solutions" *ngIf="haveSolution || isTeacher">
     <div class="solution" *ngFor="let solution of homework.solutions">
-      <div class="sol_head">
-        <div class="sol_user">
-          <div class="user_avatar"></div>
-          <p>{{solution.username}}</p>
-        </div>
-        <div class="sol_creation">
-          <p>Submitted on:</p>
-          <p>{{solution.timestamp}}</p>
+      <div class="userData">
+        <div class="user_avatar"></div><div class="username"><p>{{solution.username}}</p></div>
+        <div class="submitDate">
+          <p class="submitted">Submitted:</p>
+          <p class="submitted">{{solution.timestamp}}</p>
         </div>
       </div>
       <div class="sol_body">
-        <p>{{solution.content}}</p>
+        <p>{{solution.content}} askdiu asidh as</p>
+      </div>
+      <div class="grade">
+        <div class="approve" mat-button><mat-icon>done</mat-icon></div>
+        <div class="reject" mat-button><mat-icon>close</mat-icon></div>
       </div>
     </div>
   </div>
-</div> -->
+</div>
