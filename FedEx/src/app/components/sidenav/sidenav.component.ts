@@ -41,8 +41,9 @@ export class SidenavComponent implements OnInit {
     this.dialog.open(PopupComponent, dialogConfig);
   }
 
-  createHomework(){
-    this.router.navigate(['/']);
+  createHomework() {
+    console.log('hello');
+    this.router.navigate(['/createhomework']);
   }
 
 }

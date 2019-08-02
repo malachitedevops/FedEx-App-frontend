@@ -57,9 +57,11 @@ export class HomeworkCreationComponent implements OnInit {
       classCode: this.classList.filter((e)=>e.name===form.value.class)[0].code,
       solutions: ''
     };
-    console.log(this.homework);
     this.createHomeworkService.sendNewHomework(this.homework)
-    .subscribe(data => {console.log('homework sent')})
+    .subscribe(data => {
+      console.log('homework sent')
+      this.router.navigate(['/home'])
+    })
   }
 
   public hasError(controlName: string, errorName: string) {
