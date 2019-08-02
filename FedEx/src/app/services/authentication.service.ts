@@ -24,7 +24,6 @@ export class AuthenticationService {
     this.userService(username, password, 'register', code);
   }
 
-
   userService(username: string, password: string, route: string, code?: number) {
     return this.http.post(`${environment.serverURL}/${route}`,
       { username, password, code },
@@ -37,6 +36,7 @@ export class AuthenticationService {
           this.dialogService.openError(error['error']['message'], error['status']);
         });
   }
+  
   logoutUserService() {
     this.removeTokens();
   }

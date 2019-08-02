@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ClassService } from './services/class.service';
+import { ProfilePictureService } from './services/profile-picture.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -41,6 +42,7 @@ import {
   MatNativeDateModule
 } from '@angular/material';
 import { HomeworkService } from './services/homework.service';
+import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { HomeworkService } from './services/homework.service';
     ErrorDialogComponent,
     HomeworkCreationComponent,
     PopupComponent,
-    SettingsComponent
+    SettingsComponent,
+    ProfilePictureComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -87,7 +90,8 @@ import { HomeworkService } from './services/homework.service';
   providers: [
     ClassService,
     HomeworkService,
-    HomeworkCreateService
+    HomeworkCreateService,
+    ProfilePictureService
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ PopupComponent, ErrorDialogComponent ]
