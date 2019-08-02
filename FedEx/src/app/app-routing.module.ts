@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'homework', component: HomeworkFullComponent},
-  {path: 'createhomework', component: HomeworkCreationComponent}
+  {path: 'createhomework', component: HomeworkCreationComponent},
   {path: 'settings', component: SettingsComponent}
 ];
 
