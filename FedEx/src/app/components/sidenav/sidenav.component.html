@@ -7,32 +7,13 @@
       <div class="text">{{subject}}</div>
     </div>
   </div>
-  <!-- <div class="button_container">
-    <div class="subject biology"></div>
-    <div class="text">Biology</div>
-  </div>
-  <div class="button_container">
-    <div class="subject history"></div>
-    <div class="text">History</div>
-  </div>
-  <div class="button_container">
-    <div class="subject it"></div>
-    <div class="text">IT</div>
-  </div>
-  <div class="button_container">
-    <div class="subject literature"></div>
-    <div class="text">Literature</div>
-  </div>
-  <div class="button_container">
-    <div class="subject math"></div>
-    <div class="text">Math</div>
-  </div>
-  <div class="button_container">
-    <div class="subject physics"></div>
-    <div class="text">Physics</div>
-  </div>
-  <div class="button_container">
-    <div class="subject english"></div>
-    <div class="text">English</div>
-  </div> -->
 </div>
+
+<mat-toolbar-row class="hamburger" [matMenuTriggerFor]="menu">
+  <button mat-icon-button aria-label="editPost">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button *ngFor="let subject of subjects" mat-button class="channel-options" (click)="receiveSelectedOption(entity.name)">{{subject}}</button>
+  </mat-menu>
+</mat-toolbar-row>

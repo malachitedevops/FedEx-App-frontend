@@ -24,11 +24,10 @@ export class ListHomeworksComponent implements OnInit {
     this.getHomeworkList()
   }
 
-  getHomeworkList(subject='All'){
+  getHomeworkList(){
         // this.sideNav.subjectDataChange().subscribe(subject=>{this.selectedSubject=subject})
         this.homeworkService.getHomeworks(this.classCode)
         .subscribe((homeworks: any) => {
-          homeworks=homeworks.filter((e)=>e.subject===subject)
           console.log(homeworks);
           homeworks.map(homework => {
             homework.deadline = homework.deadline.split('T')[0];
