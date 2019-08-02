@@ -7,7 +7,8 @@
   </div>
   <div class="form_div">
     <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
-      <h1>SIGN IN</h1>
+      <h1>edex</h1>
+      <h2>REGISTER</h2>
       <div class="line"></div>
       <mat-form-field>
         <input id="username" matInput formControlName="username" autocomplete="off" />
@@ -29,7 +30,7 @@
         <mat-error id="code-error" *ngIf="hasError('code', 'required')">Code is required</mat-error>
       </mat-form-field>
       <button mat-raised-button type="submit" [disabled]="!loginForm.valid">Register</button>
-      <h4>Do you have account?<a routerLink="/login"  routerLinkActive="router-link-active" >LOGIN</a></h4>
+      <!-- <h4>Do you have account?<a routerLink="/login"  routerLinkActive="router-link-active" >LOGIN</a></h4> -->
     </form>
   </div>
   <div class="right_div"></div>
