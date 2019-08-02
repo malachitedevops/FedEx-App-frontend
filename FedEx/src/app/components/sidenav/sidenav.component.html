@@ -1,7 +1,13 @@
 <div class="subjects">
   <div class="createClassButton" *ngIf="getRoleFromLocal()"(click)="openPopUp('createClass')">Create New Class</div>
   <div class="createClassButton" *ngIf="getRoleFromLocal()"(click)="createHomework()">Create New Homework</div>
-  <div class="button_container">
+  <div class="subject-list-container" *ngFor="let subject of subjects">
+    <div class="button_container" id="{{subject}}" (click)="filterSubject(subject)">
+      <div class="subject {{subject.toLowerCase()}}" ></div>
+      <div class="text">{{subject}}</div>
+    </div>
+  </div>
+  <!-- <div class="button_container">
     <div class="subject biology"></div>
     <div class="text">Biology</div>
   </div>
@@ -28,5 +34,5 @@
   <div class="button_container">
     <div class="subject english"></div>
     <div class="text">English</div>
-  </div>
+  </div> -->
 </div>

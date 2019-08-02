@@ -92,6 +92,7 @@ import { ProfilePictureComponent } from './components/profile-picture/profile-pi
     HomeworkService,
     HomeworkCreateService,
     ProfilePictureService
+    ListHomeworksComponent
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ ErrorDialogComponent, PopupComponent ]
