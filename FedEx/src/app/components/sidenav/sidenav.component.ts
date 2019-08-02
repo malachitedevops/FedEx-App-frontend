@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { PopupComponent } from '../popup/popup.component';
 import { AuthenticationService } from '../../services/authentication.service';
-import { ListHomeworksComponent } from '../list-homeworks/list-homeworks.component'
 import { Router } from '@angular/router';
-import { Subject, BehaviorSubject } from 'rxjs';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
@@ -13,13 +12,12 @@ import { Subject, BehaviorSubject } from 'rxjs';
 })
 export class SidenavComponent implements OnInit {
   subjects=['All','Biology','History','IT','Literature','Math','Physics','English'];
-  private subjectChange = new BehaviorSubject<string>('');
+  @Output() sChange = new EventEmitter();
 
   constructor(
     private dialog: MatDialog,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private homeworkList: ListHomeworksComponent,
   ) { }
 
   ngOnInit() {
@@ -47,18 +45,11 @@ export class SidenavComponent implements OnInit {
   }
 
   createHomework() {
-    console.log('hello');
     this.router.navigate(['/createhomework']);
   }
 
-  subjectDataChange(){
-    return this.subjectChange.asObservable();
-  }
 
   filterSubject(subject){
-    console.log(subject);
-    this.homeworkList.getHomeworkList(subject)
-    this.subjectChange.next(subject)
-    // this.subjectDataChange()
+    this.sChange.emit(subject)
   }
 }
