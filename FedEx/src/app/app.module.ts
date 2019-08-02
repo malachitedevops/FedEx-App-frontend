@@ -86,7 +86,8 @@ import { HomeworkService } from './services/homework.service';
   providers: [
     ClassService,
     HomeworkService,
-    HomeworkCreateService
+    HomeworkCreateService,
+    ListHomeworksComponent
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ ErrorDialogComponent, PopupComponent ]
