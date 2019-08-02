@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ClassService } from './services/class.service';
+import { ProfilePictureService } from './services/profile-picture.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,7 +19,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 import { HomeworkCreateService } from './services/homework-create.service';
-
+import { SettingsComponent } from './components/settings/settings.component';
 import {
   MatButtonModule,
   MatCardModule,
@@ -41,6 +42,8 @@ import {
   MatNativeDateModule
 } from '@angular/material';
 import { HomeworkService } from './services/homework.service';
+import { HomeworkFullComponent } from './components/homework-full/homework-full.component';
+import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { HomeworkService } from './services/homework.service';
     RegisterComponent,
     ErrorDialogComponent,
     HomeworkCreationComponent,
-    PopupComponent
+    PopupComponent,
+    HomeworkFullComponent,
+    SettingsComponent,
+    ProfilePictureComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -86,7 +92,9 @@ import { HomeworkService } from './services/homework.service';
   providers: [
     ClassService,
     HomeworkService,
-    HomeworkCreateService
+    HomeworkCreateService,
+    ListHomeworksComponent,
+    ProfilePictureService
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ ErrorDialogComponent, PopupComponent ]

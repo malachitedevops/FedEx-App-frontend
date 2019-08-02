@@ -1,3 +1,5 @@
+$break-large: 1024px
+
 .subjects
   display: flex
   flex-direction: column
@@ -6,6 +8,25 @@
   justify-content: space-between
   margin: 1.6vh
   width: 20vw
+  @media screen and (max-width: $break-large)
+      display: none
+
+  .createClassButton
+    background: linear-gradient(to right, #57a1c6 5%, #69bace 100%)
+    border-radius: 10px
+    color: #fff
+    margin: 1vh
+    height: 35px
+    line-height: 35px
+    margin: 3px 10px
+    padding: 6px
+    text-align: center
+    vertical-align: middle
+    width: 95%
+
+  .createClassButton:hover
+    background: linear-gradient(to right, #69bace 5%, #57a1c6 100%)
+    cursor: pointer
 
   .button_container:hover
     cursor: pointer
@@ -20,7 +41,7 @@
     line-height: 35px
     margin: 3px 10px
     padding: 6px
-    width: 100%
+    width: 95%
 
     .subject
       border-radius: 9px
@@ -54,18 +75,40 @@
   .english
     background-color: #B744B8
 
-.createClassButton
-  background: linear-gradient(to right, #57a1c6 5%, #69bace 100%)
-  border-radius: 10px
-  color: #fff
-  height: 35px
-  line-height: 35px
-  margin: 3px 10px
-  padding: 6px
-  text-align: center
-  vertical-align: middle
-  width: 100%
+  .all
+    background-color: #666
+  .geography
+    background-color: #acdde7
 
-.createClassButton:hover
-  background: linear-gradient(to right, #69bace 5%, #57a1c6 100%)
+.hamburger:hover
   cursor: pointer
+  background-color: #EDFBFF
+
+.hamburger
+  display: none
+  @media screen and (max-width: $break-large)
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 93vw
+    background-color: #fff
+    justify-content: center
+    border-radius: 15px
+    height: 60px
+    margin: 2vh 0
+    border: 1px solid #ccc
+
+::ng-deep .mat-menu-content
+  display: flex
+  flex-direction: column
+  width: 93vw
+  overflow: auto
+
+::ng-deep .channel-options
+  font-size: 20px
+  height: 60px
+  letter-spacing: 3px
+
+::ng-deep .channel-options:hover
+  background-color: #EDFBFF
+  

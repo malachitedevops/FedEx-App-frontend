@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  serverURL: 'localhost:3000'
+  serverURL: 'http://localhost:3000',
+  MAX_IMAGE_SIZE: 5000000
 };
 
 /*

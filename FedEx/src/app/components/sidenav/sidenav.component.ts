@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { PopupComponent } from '../popup/popup.component';
 import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,13 +11,17 @@ import { AuthenticationService } from '../../services/authentication.service';
   styleUrls: ['./sidenav.component.sass']
 })
 export class SidenavComponent implements OnInit {
+  subjects=['All','Biology','History','IT','Literature','Math','Physics','English'];
+  @Output() sChange = new EventEmitter();
 
   constructor(
     private dialog: MatDialog,
-    private authenticationService: AuthenticationService
+    private router: Router,
+    private authenticationService: AuthenticationService,
   ) { }
 
   ngOnInit() {
+    this.getRoleFromLocal()
 
   }
 
@@ -35,8 +41,15 @@ export class SidenavComponent implements OnInit {
       className:''
     }
     dialogConfig.data = {newClass};
-    dialogConfig.width = '30vw';
     this.dialog.open(PopupComponent, dialogConfig);
   }
 
+  createHomework() {
+    this.router.navigate(['/createhomework']);
+  }
+
+
+  filterSubject(subject){
+    this.sChange.emit(subject)
+  }
 }
