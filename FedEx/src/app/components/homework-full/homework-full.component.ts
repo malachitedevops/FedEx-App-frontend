@@ -119,6 +119,7 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
       this.homeworkService.approveSolution(solutionId).subscribe(response => {
             this.homeWorkSubs = this.homeworkService.getOneHomework(this.url).subscribe(response => {
               this.homework = response[0];
+              console.log(response);
               this.homework.solutions.map(solution => {
                 solution.timestamp = solution.timestamp.split('T')[0];
               });
@@ -134,9 +135,10 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
     if (this.userRole === 'teacher') {
       //send save approve to this solution
       // let solutionId = this.homework.solutions[0]._id
-      this.homeworkService.approveSolution(solutionId).subscribe(response => {
+      this.homeworkService.declineSolution(solutionId).subscribe(response => {
         this.homeWorkSubs = this.homeworkService.getOneHomework(this.url).subscribe(response => {
           this.homework = response[0];
+          console.log(response);
           this.homework.solutions.map(solution => {
             solution.timestamp = solution.timestamp.split('T')[0];
           });

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HomeworkService } from '../../services/homework.service';
 import { Router } from '@angular/router';
 import { ClassService } from 'src/app/services/class.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-list-homeworks',
@@ -11,22 +12,31 @@ import { ClassService } from 'src/app/services/class.service';
 export class ListHomeworksComponent implements OnInit {
   @Input() subject: string ;
   public homeworks: object[];
-  private classCode: string = '10001';
+  private classCode: string;
 
   constructor(
     private homeworkService: HomeworkService,
+    private authenticationService: AuthenticationService,
     private router: Router,
     private classService: ClassService
   ) { }
 
   ngOnInit() {
-    this.getHomeworkList(this.subject)
+    if (this.authenticationService.getUserRoleLocal() === 'teacher'){
+      this.classService.selectedClass.subscribe(data => {
+        this.classCode = data;
+        this.getHomeworkList();
+      })
+    } else {
+      this.classCode = this.authenticationService.getUserClassCodeLocal();
+      this.getHomeworkList();
+    }
   }
 
   ngOnChanges(){
-    this.getHomeworkList(this.subject)
-
+    this.getHomeworkList(this.subject);
   }
+
   getHomeworkList(subject='All'){
         this.homeworkService.getHomeworks(this.classCode)
         .subscribe((homeworks: any) => {

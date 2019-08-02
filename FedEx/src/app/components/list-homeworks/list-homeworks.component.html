@@ -6,7 +6,7 @@
   <h3>Class name: {{homeworks[0].className}}</h3>
   <h3>Class code: {{homeworks[0].classCode}}</h3>
 </div>
-<div class="hw_container" 
+<div class="hw_container"
 *ngFor="let homework of homeworks" (click)="selectHomework(homework)">
   <div class="subject">
     <div class="{{homework.subject}}"></div>
@@ -21,7 +21,7 @@
         <p>{{homework.created}}</p>
       </div>
     </div>
-    <div class="submissions">16 submissions</div>
+    <div class="submissions">{{homework.solutions.length}} solutions</div>
   </div>
   <mat-card-content>
     <div class="homework_details">
