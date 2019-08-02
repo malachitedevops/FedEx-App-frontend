@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListHomeworksComponent } from './list-homeworks.component';
+import { MatCardModule } from '@angular/material';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
 
 describe('ListHomeworksComponent', () => {
   let component: ListHomeworksComponent;
@@ -8,7 +11,11 @@ describe('ListHomeworksComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListHomeworksComponent ]
+      declarations: [ ListHomeworksComponent ],
+      imports: [
+        MatCardModule,
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   }));
