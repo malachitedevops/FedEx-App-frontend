@@ -1,3 +1,5 @@
+$break-large: 1024px
+
 .main-container
   background-color: #f7f7f7
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
@@ -46,7 +48,7 @@
         display: flex
         justify-content: flex-start
         align-items: center
-      
+
       .stat
         display: flex
 
@@ -142,7 +144,7 @@
       height: 100px
       padding-top: 2%
       padding-bottom: 2%
-      margin-top: 1%
+      margin-top: 5%
       margin-bottom: 2%
       width: 100%
       -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.31)
@@ -174,14 +176,14 @@
           display: flex
           align-items: center
           justify-content: flex-start
-        
+
         .submitDate
           width: 100%
           height: 50px
           padding-left: 15px
           //background-color: yellow
 
-          p 
+          p
             margin: 0
 
       .sol_body
@@ -192,19 +194,30 @@
           margin: 0
           padding: 10px
 
-        .grade
-          width: 20px
-          height: 30px
-          //background-color: red
-          display: flex
-          // margin-left: 70%
-          position: relative
-          left: 50%
+      .grade
+        display: flex
+        position: relative
+        align-items: flex-end
+        // top: 70%
+        // right: 10%
+        // @media screen and (max-width: $break-large)
+        //   top: 70%
+        //   right: calc(50% - 15%- 30px)
+        //   margin: auto
 
-          .matButton
-            // height: 20px
-            // width: 10px
-            background-color: white
+        .matButton
+          height: 3vw
+          min-height: 30px
+          vertical-align: middle
+          max-width: 30px
+
+        .matButton:nth-child(1)
+          background-color: red
+          border-radius: 10px 0 0 10px
+
+        .matButton:nth-child(2)
+          background-color: green
+          border-radius: 0 10px 10px 0
 
 
       // .sol_head
@@ -262,7 +275,7 @@
 //     -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.31)
 //     box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.31)
 //     width: 50vw
-    
+
 
 //     .subject_picture
 //       background-image: url(../../../assets/biology.png)

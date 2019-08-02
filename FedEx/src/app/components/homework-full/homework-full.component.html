@@ -1,12 +1,12 @@
 <div class="main-container">
-  <div class="wrapper"> 
+  <div class="wrapper">
     <div class="homework">
       <div class="subject_picture"></div>
       <div class="homework_text">
         <div class="homework_title">{{homework.title}}</div>
         <div class="stat">
           <div class="homework_teacher"> Submitted by {{homework.teacherName}}</div>
-          <div class="solutions_stat"> 
+          <div class="solutions_stat">
             <div class="solution_counter">{{solutionCount}}/{{classNumber}} solutions received</div>
           </div>
         </div>
@@ -32,9 +32,10 @@
         </div>
         <div class="sol_body">
           <p>{{solution.content}} askdiu asidh as</p>
-          <div class="grade">
-            <button class="matButton" mat-button><mat-icon>done</mat-icon></button>|<button class="matButton" mat-button><mat-icon>close</mat-icon></button>
-          </div>
+        </div>
+        <div class="grade">
+          <button class="matButton" mat-button><mat-icon>done</mat-icon></button>
+          <button class="matButton" mat-button><mat-icon>close</mat-icon></button>
         </div>
       </div>
     </div>
