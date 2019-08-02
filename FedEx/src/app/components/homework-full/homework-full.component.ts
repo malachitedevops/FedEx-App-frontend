@@ -48,7 +48,7 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
   private homeWorkSubs: Subscription;
   private userRole: string;
   private userName: string;
-  private classNumber: number;
+  public classNumber: number;
   private userAvatar: string
 
 
