@@ -51,6 +51,7 @@ export class ClassService {
   }
 
   getclassNumber(classId) {
+    console.log(classId);
     return this.http.get(`${environment.serverURL}/class/${classId}`, {headers: { 'content-type': 'application/json' }});
   }
 }
