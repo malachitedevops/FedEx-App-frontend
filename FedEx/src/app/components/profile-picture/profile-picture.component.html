@@ -1,0 +1,18 @@
+<div class="main-container">
+  <div class="choose">
+    <div class="buttons">
+      <button type="button" mat-raised-button (click)="addFile.click()">
+        <mat-icon>add_circle_outline</mat-icon>
+        Upload image
+      </button>
+      <input type="file" #addFile (change)="onImagePicked($event)">
+    </div>
+  </div>
+  <div class="picture" [style.backgroundImage]="'url('+imagePreview+')'">
+    <div class="controls">
+      <button [disabled]="!selectedFile" type="button" mat-icon-button (click)="onSaveImage()">
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
