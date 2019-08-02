@@ -24,13 +24,12 @@ export class AuthenticationService {
     this.userService(username, password, 'register', code);
   }
 
-
   userService(username: string, password: string, route: string, code?: number) {
     return this.http.post(`${environment.serverURL}/${route}`,
       { username, password, code },
       { headers: { 'Content-Type': 'application/json' } }).subscribe(
         (response: Response) => {
-          console.log(response)
+          //this.storeTokens(response['username'], response['profilePicture'], response['_id'], response['role']);
           this.storeTokens(response['username'], response['avatarPath'], response['_id'], response['role']);
           this.router.navigate(['/home']);
         },
@@ -38,6 +37,7 @@ export class AuthenticationService {
           this.dialogService.openError(error['error']['message'], error['status']);
         });
   }
+
   logoutUserService() {
     this.removeTokens();
   }

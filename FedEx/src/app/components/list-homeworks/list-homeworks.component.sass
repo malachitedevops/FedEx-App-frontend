@@ -1,3 +1,6 @@
+$break-large: 1024px
+$break-medium: 670px
+  
 @mixin standard_subject_features()
   border-radius: 6px
   height: 12px
@@ -29,11 +32,18 @@
   font-family: 'Montserrat', sans-serif
   justify-content: space-between
   margin: 2vh 0 1vh 3vw
+  min-width: 500px
   padding: 10px
-  width: 70vw
+  width: 65vw
   -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.31)
   -moz-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.31)
   box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.31)
+  @media screen and (max-width: $break-large)
+    width: 90vw
+    margin: 0
+    margin-bottom: 3vh
+    @media screen and (max-width: $break-medium)
+      min-width: 250px
 
   .subject
     align-items: center
@@ -43,11 +53,17 @@
     display: flex
     flex-direction: row
     justify-content: center
-    left: 58vw
+    left: 55vw
     padding: 3px
     position: relative
     top: -22px
-    width: 8vw
+    width: 100px
+    @media screen and (max-width: $break-large)
+      left: 70vw
+      @media screen and (max-width: $break-medium)
+        position: initial
+        margin: auto
+        margin-top: -20px
 
     .subject_name
       font-size: 12px
@@ -92,6 +108,9 @@
     flex-direction: row
     justify-content: space-between
     width: 100%
+    @media screen and (max-width: $break-medium)
+      flex-direction: column
+      align-items: center
 
     .teacher
       align-items: center
@@ -129,20 +148,38 @@
     align-items: center
     display: flex
     justify-content: space-between
+    @media screen and (max-width: $break-medium)
+      flex-direction: column
+      align-items: center
 
     .homework_details
+      @media screen and (max-width: $break-medium)
+        align-items: center
+        display: flex
+        flex-direction: column
 
       .homework_title
         font-weight: 600
         margin: 0
         padding: 0 30px 15px 30px
         font-size: 24px
+        @media screen and (max-width: $break-medium)
+          border-top: 1px solid #ccc
+          padding-top: 15px
+          border-radius: 15px
+          width: 82%
+          text-align: center
 
       .short_desc
         color: #666
         margin: 0 0 0 10px
         padding: 0 30px
         font-size: 18px
+        @media screen and (max-width: $break-medium)
+          text-align: center
+          border-bottom: 1px solid #ccc
+          padding-bottom: 15px
+          border-radius: 15px
 
     .deadline
       align-items: center

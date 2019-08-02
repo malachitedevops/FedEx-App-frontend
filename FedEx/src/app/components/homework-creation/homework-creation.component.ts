@@ -14,7 +14,7 @@ import { ClassService } from 'src/app/services/class.service';
 export class HomeworkCreationComponent implements OnInit {
 
   public homeworkCreationForm: FormGroup;
-  public subjects = ['Math','History','English','Geography', 'Biology']
+  public subjects = ['Math','IT','History','Literature','Physics','English', 'Biology']
   public classList;
   public deadlineDate: Date;
   homework: Homework;

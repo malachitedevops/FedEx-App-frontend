@@ -1,20 +1,23 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AuthenticationService } from './authentication.service';
-import { MatDialogModule } from '@angular/material';
 
-describe('AuthenticationService', () => {
+import { ProfilePictureService } from './profile-picture.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {
+  MatDialogModule,
+  MatIconModule
+} from '@angular/material';
+
+describe('ProfilePictureService', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [
       HttpClientTestingModule,
-      RouterTestingModule,
+      MatIconModule,
       MatDialogModule
     ]
   }));
 
   it('should be created', () => {
-    const service: AuthenticationService = TestBed.get(AuthenticationService);
+    const service: ProfilePictureService = TestBed.get(ProfilePictureService);
     expect(service).toBeTruthy();
   });
 });

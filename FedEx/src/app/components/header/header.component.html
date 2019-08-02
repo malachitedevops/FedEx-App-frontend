@@ -1,5 +1,5 @@
 <mat-toolbar class="header">
-  <mat-toolbar-row class="logoDiv">
+  <mat-toolbar-row class="logoDiv" (click)="onRedirect('home')">
     <div class="logoPic"></div>
     <h1 class="brand">edex</h1>
   </mat-toolbar-row>
@@ -19,7 +19,7 @@
       <p class="hello"> Hello, {{ userNameLocal }}! </p>
       <button mat-icon-button class="user_avatar"  aria-label="userOptions" [style.backgroundImage]="'url('+userPicturePath+')'"></button>
       <mat-menu #menu="matMenu" class="user_options">
-        <!-- <button mat-button (click)="onRedirect('settings')" class="settings">Settings</button> -->
+        <button mat-button (click)="onRedirect('settings')" class="settings">Settings</button>
         <button mat-stroked-button (click)="onlogout('login')" class="signOut">Sign out</button>
       </mat-menu>
     </div>
