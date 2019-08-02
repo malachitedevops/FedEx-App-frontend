@@ -79,7 +79,7 @@ export class HomeworkFullComponent implements OnInit, OnDestroy {
     this.userAvatar = this.authenticationService.getUserAvatarLocal();
 
     setTimeout(()=> {
-      this.submitSolution(); 
+      //this.submitSolution(); 
       this.approveSolution();
     },1000)
     
