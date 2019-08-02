@@ -1,4 +1,4 @@
-<div class="main-container">
+<!-- <div class="main-container">
   <div class="wrapper">
     <div class="homework">
       <div class="subject_picture"></div>
@@ -42,15 +42,15 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<!-- <div class="main-container">
+<div class="main-container">
   <div class="homework">
     <div class="subject_picture"></div>
     <div class="homework_text">
       <div class="stat">
         <div class="homework_teacher"> Submitted by {{homework.teacherName}}</div>
-        <div class="solution_counter">16 submissions</div>
+        <div class="solution_counter">{{homework.solutions.length}}/{{classNumber}} solutions received</div>
       </div>
       <div class="homework_details">
         <div class="homework_title">{{homework.title}}</div>
@@ -67,9 +67,11 @@
     <button mat-raised-button (click)="submitSolution(solution.value)">SUBMIT</button>
   </div>
   <div class="other_solutions" *ngIf="haveSolution || isTeacher">
-    <div class="solution" *ngFor="let solution of homework.solutions">
+    <div class="solution" *ngFor="let solution of homework.solutions" [ngClass]="{'approved': solution.approved === 'true',
+    'declined': solution.approved === 'false'}">
       <div class="userData">
-        <div class="user_avatar"></div><div class="username"><p>{{solution.username}}</p></div>
+        <div class="user_avatar" [style.backgroundImage]="'url('+solution.avatarPath+')'"></div>
+        <div class="username"><p>{{solution.username}}</p></div>
         <div class="submitDate">
           <p class="submitted">Submitted:</p>
           <p class="submitted">{{solution.timestamp}}</p>
@@ -79,9 +81,9 @@
         <p>{{solution.content}} askdiu asidh as</p>
       </div>
       <div class="grade">
-        <div class="approve" mat-button><mat-icon>done</mat-icon></div>
-        <div class="reject" mat-button><mat-icon>close</mat-icon></div>
+        <div class="approve" mat-button (click)='approveSolution(solution._id)'><mat-icon>done</mat-icon></div>
+        <div class="reject" mat-button (click)='declineSolution(solution._id)'><mat-icon>close</mat-icon></div>
       </div>
     </div>
   </div>
-</div> -->
+</div>
